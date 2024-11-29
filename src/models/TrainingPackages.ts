@@ -6,5 +6,6 @@ export interface TrainingPackage {
     duration: number; 
     active: boolean; 
     includes: string[]; 
+    imagePath: string;
   }
 

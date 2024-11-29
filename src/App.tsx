@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import Cards from "./components/Cards";
 import InfoBoxes from "./components/TextInfoBoxes";
 import CustomImage from "./components/CustomImage";
-import dumbells from "./assets/images/dumbells.jpg"
-import profileimage from "./assets/images/image0.jpeg"
+import dumbells from "../public/assets/images/dumbells.jpg"
+import profileimage from "../public/assets/images/image0.jpeg"
 
 const henrikQoutes  = {
   first: "Min filosofi är enkel, träning ska vara okomplicerad och leda till stora framgångar över tid. ",

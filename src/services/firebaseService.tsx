@@ -16,8 +16,10 @@ export async function fetchTrainingPackages(): Promise<TrainingPackage[]> {
         price: data.price,
         duration: data.duration,
         active: data.active,
-        includes: data.includes
+        includes: data.includes,
+        imagePath: data.imagePath
       });
+      console.log(data);
     });
     return packages;
   }

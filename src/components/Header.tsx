@@ -1,6 +1,6 @@
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Button, Navbar } from "flowbite-react";
-import Vitlogga from "../assets/images/vitlogga.png";
+import Vitlogga from "../../public/assets/images/vitlogga.png";
 import { useState, useEffect } from "react";
 function Header() {
 // @ts-ignore
@@ -33,10 +33,12 @@ function Header() {
       ${isVisible ? "fixed top-0 left-0 w-full z-10" : "relative"} 
       ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"}`}
       >
-        <div className="flex md:order-2 gap-6">
-          {" "}
-          <Button className="text-white">Boka mig</Button>
-          <Button className="text-white">Kontakt</Button>
+          
+        <div className="flex gap-4 items-center md:order-2 ">
+        
+          
+          <Button className="text-white h-auto" >Boka mig</Button>
+          <Button className="text-white h-auto">Kontakt</Button>
           <a
             href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"
             target="_blank"
