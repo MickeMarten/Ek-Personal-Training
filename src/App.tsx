@@ -22,10 +22,10 @@ function App() {
       <Header />
       <main> 
       <InfoBoxes text={henrikQoutes.second}/>
-      <CustomImage src={profileimage} alt="HenrikProfilePic"/>
+      <CustomImage src={profileimage} alt="HenrikProfilePic" includeBtn={true}/>
       <Cards />
       <InfoBoxes text={henrikQoutes.third} />
-      <CustomImage src={dumbells} alt="PTImage"/>
+      <CustomImage src={dumbells} alt="PTImage" includeBtn={false}/>
       </main>
       <FooterEnd />
       

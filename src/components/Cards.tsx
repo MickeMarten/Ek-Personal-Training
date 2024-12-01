@@ -26,19 +26,19 @@ function Cards() {
   }, []);
 
   return (
-    <section className="py-8">
+    <section className="py-8 ">
       <h1 className="text-white text-center text-4xl">Träningspaket</h1>
-      <div className="flex flex-row overflow-x-auto gap-9 p-4">
+      <div className="flex flex-row overflow-x-auto gap-9 p-4 ">
         {packages.map((pkt) => (
           <Card
             key={pkt.id}
             imgSrc={activeCardId === pkt.id ? undefined : pkt.imagePath} 
-            className="bg-slate-900 text-white flex flex-col justify-between p-6 space-y-4 transition-transform transform duration-500 ease-out scale-100 hover:scale-105"
+            className="bg-slate-900 text-white flex flex-col justify-between p-6 space-y-4 transition-transform transform duration-500 ease-out scale-100 hover:scale-105 "
           >
             <h5 className="text-2xl font-bold tracking-tight">{pkt.name}</h5>
             
             {activeCardId === pkt.id ? (
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-2 animate-fade-in">
                 <h6 className="font-semibold">Detta ingår:</h6>
                 <ul className="list-disc pl-5 space-y-1 text-sm">
                   {pkt.includes.map((item, index) => (
