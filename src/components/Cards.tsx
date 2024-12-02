@@ -1,28 +1,16 @@
 import { Button, Card } from "flowbite-react";
-import { useEffect, useState } from "react";
-import { TrainingPackage } from "../models/TrainingPackages";
-import { fetchTrainingPackages } from "../services/firebaseService"
+import { useContext, useState  } from "react";
+import { ServiceContext } from "../App";
 import FormModal from "./FormModal";
 
-
-
-
 function Cards() {
-  const [packages, setPackages] = useState<TrainingPackage[]>([]);
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
-  async function loadPackages() {
-    const fetchedPackages = await fetchTrainingPackages();
-    setPackages(fetchedPackages);
-  }
+  const { packages } = useContext(ServiceContext);
 
   function readTheRightCard(cardId: string): void {
     setActiveCardId((prevCardId) => (prevCardId === cardId ? null : cardId));
   }
-
-  useEffect(() => {
-    loadPackages();
-  }, []);
 
   return (
     <section className="py-8 ">
@@ -31,11 +19,11 @@ function Cards() {
         {packages.map((pkt) => (
           <Card
             key={pkt.id}
-            imgSrc={activeCardId === pkt.id ? undefined : pkt.imagePath} 
+            imgSrc={activeCardId === pkt.id ? undefined : pkt.imagePath}
             className="bg-gray900 flex flex-col justify-between p-6 space-y-4"
           >
             <h5 className="text-2xl font-bold tracking-tight">{pkt.name}</h5>
-            
+
             {activeCardId === pkt.id ? (
               <div className="flex flex-col space-y-2 animate-fade-in">
                 <h6 className="font-semibold">Detta ingår:</h6>
@@ -52,7 +40,7 @@ function Cards() {
             <div className="flex flex-col items-center mt-auto">
               <small className="text-lg">{pkt.price}kr</small>
             </div>
-            
+
             <div className="flex flex-row gap-10">
               <Button
                 gradientMonochrome="info"
@@ -61,7 +49,7 @@ function Cards() {
               >
                 {activeCardId === pkt.id ? "Tillbaka" : "Läs mer"}
               </Button>
-              <FormModal pktName={pkt.name} packages={packages}/>
+              <FormModal pktName={pkt.name} packages={packages} />
             </div>
           </Card>
         ))}

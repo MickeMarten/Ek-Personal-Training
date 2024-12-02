@@ -1,30 +1,20 @@
-Göra Modal -
-Vi sparar ingen data.
-
-för och efternamn
 
 Email 
 
-Jag vill ha hjälp med - 
-fritext
 
 
-skickaknapp, ångra. 
 
 
-Vilket paket är du intressrad av? Chip
-1 2 3 
+
 
 fixa mailservice.
 
 Jämföra kort med bild i om det blir bra.
 
-knappar på minsta telebobo
 
 
 
 
-Fixa bilder
 
 Fixa responsivitet
 -

@@ -23,6 +23,8 @@ function FormModal( { pktName, packages }: FormModalProps ) {
     setModalIsActive((prevState) => !prevState);
   }
   console.log(choosenPackage);
+
+  
   return (
     <>
     
@@ -40,37 +42,26 @@ function FormModal( { pktName, packages }: FormModalProps ) {
         onClose={openAndCloseModal}
         className="bg-slate-400 animate-fade-in"
       >
-      <Modal.Header className="bg-gray900"><h1 className="text-primary ml-16 text-3xl">Kontakta Henrik!</h1></Modal.Header>
+      <Modal.Header className="bg-gray900 "></Modal.Header>
 
-        <Modal.Body className="bg-gray900 flex flex-col gap-4">
-          <div className="space-y-6">
-            <div>
+        <Modal.Body className="bg-gray900">
+          <div className="space-y-6 flex flex-col gap-5 mb-6">
+          <h1 className="text-primary ml-16 text-3xl">Kontakta Henrik!</h1>
+
               <div className="mb-2 block ">
                 <Label
                   htmlFor="email"
                   value="Din email"
                   className="text-primary"
                 />
-              </div>
-              <TextInput includeBtn="email" placeholder="Exempel@email.com" required />
-            </div>
-      
+              <TextInput placeholder="Exempel@email.com" required />
 
-            <div className="max-w-md">
-              <h3>Du har valt att kontakta Henrik angående <b className="">{choosenPackage}</b></h3>
-              <div className="mb-2 block">
-                <Label
-                  htmlFor="comment"
-                  value="Ditt meddelande"
-                  className="text-primary"
-                />
               </div>
-              <Textarea includeBtn="comment" placeholder="" required rows={4} />
-            </div>
-            <div className="text-center flex flex-col gap-3">
-              <h2>Vill du byta program?</h2>
+
+              <div className="text-center flex flex-col gap-3">
+              <h2>Tillgängliga träningsprogram</h2>
        <div className="flex flex-wrap gap-4 w-full justify-center">
-                <div className="flex gap-4 w-full sm:w-1/2">
+                <div className="flex gap-4 w-full flex-wrap sm:w-1/2">
                 {packages && packages.length > 0 ? (
                     packages.map((pkt) => (
                       <Badge key={pkt.id} onClick={()=>setChoosenPackage(pkt.name)}>{pkt.name}</Badge>
@@ -82,9 +73,24 @@ function FormModal( { pktName, packages }: FormModalProps ) {
                 </div>
               </div> 
             </div>
+      
 
-            <div className="w-full">
-              <Button>Skicka</Button>
+            <div className="max-w-md flex flex-col gap-9">
+              <h3>Du har valt att kontakta Henrik angående <b className="text-green-400">{choosenPackage}</b></h3>
+              <div className="mb-2 block">
+                <Label
+                  htmlFor="comment"
+                  value="Ditt meddelande"
+                  className="text-primary"
+                />
+              <Textarea placeholder="Hej Henrik!" required rows={4} />
+
+              </div>
+            </div>
+        
+
+            <div className="w-full flex justify-center">
+              <Button className="w-24">Skicka</Button>
             </div>
           </div>
           <Banner>

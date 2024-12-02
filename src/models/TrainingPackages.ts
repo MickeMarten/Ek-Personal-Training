@@ -9,3 +9,8 @@ export interface TrainingPackage {
     imagePath: string;
   }
 
+
+  export interface ServicePackageContext{
+    packages:TrainingPackage[];
+
+  }

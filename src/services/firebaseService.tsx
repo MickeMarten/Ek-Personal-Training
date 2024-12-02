@@ -1,4 +1,4 @@
-import { db } from './firebaseConfig';
+/* import { db } from './firebaseConfig';
 import { collection, getDocs } from "firebase/firestore";
 import { TrainingPackage } from '../models/TrainingPackages';
 
@@ -22,4 +22,4 @@ export async function fetchTrainingPackages(): Promise<TrainingPackage[]> {
       console.log(data);
     });
     return packages;
-  }
+  } */
