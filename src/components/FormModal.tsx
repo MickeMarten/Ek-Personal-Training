@@ -17,7 +17,7 @@ import { FormModalProps } from "../models/ForModalProps";
 
 function FormModal( { pktName, packages }: FormModalProps ) {
   const [modalIsActive, setModalIsActive] = useState<boolean>(false);
-  const [choosenPackage, setChoosenPackage] = useState<string>(pktName);
+  const [choosenPackage, setChoosenPackage] = useState<string | undefined>(pktName);
 
   function openAndCloseModal(): void {
     setModalIsActive((prevState) => !prevState);
@@ -42,11 +42,11 @@ function FormModal( { pktName, packages }: FormModalProps ) {
         onClose={openAndCloseModal}
         className="bg-slate-400 animate-fade-in"
       >
-      <Modal.Header className="bg-gray900 "></Modal.Header>
+      
 
-        <Modal.Body className="bg-gray900">
-          <div className="space-y-6 flex flex-col gap-5 mb-6">
-          <h1 className="text-primary ml-16 text-3xl">Kontakta Henrik!</h1>
+        <Modal.Body className="bg-gray900 rounded-md ">
+          <div className="space-y-6 flex flex-col mb-6 mt-8">
+          <h1 className="text-primary text-center text-3xl">Kontakta Henrik!</h1>
 
               <div className="mb-2 block ">
                 <Label
@@ -89,12 +89,19 @@ function FormModal( { pktName, packages }: FormModalProps ) {
             </div>
         
 
-            <div className="w-full flex justify-center">
-              <Button className="w-24">Skicka</Button>
+            <div className="w-full flex justify-between">
+              <Button  gradientMonochrome="info" className="w-24">Skicka</Button>
+              <Button
+        gradientMonochrome="info"
+        className="w-24"
+        onClick={() => openAndCloseModal()}
+      >
+       Avbryt
+      </Button>
             </div>
           </div>
           <Banner>
-            <div className="flex w-full justify-between border-b border-gray-200 bg-gray-50 p-4">
+            <div className="flex w-full justify-between border-b border-gray-200 bg-gray-50 p-2">
               <div className="mx-auto flex items-center">
                 <p className="flex items-center text-sm font-normal text-gray900 ">
                   <MdAnnouncement className="mr-4 h-4 w-4" />

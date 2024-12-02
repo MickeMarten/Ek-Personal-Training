@@ -13,8 +13,8 @@ Jämföra kort med bild i om det blir bra.
 
 
 
-
-
+Fixa modelsnamn
+Ta bort modalbtn?
 
 Fixa responsivitet
--
+React helmet
