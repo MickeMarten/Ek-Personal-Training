@@ -2,7 +2,6 @@ import { Button, Card } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { TrainingPackage } from "../models/TrainingPackages";
 import { fetchTrainingPackages } from "../services/firebaseService"
-import legend from "../../public/assets/images/ronnie.jpg"
 import FormModal from "./FormModal";
 
 
@@ -27,13 +26,13 @@ function Cards() {
 
   return (
     <section className="py-8 ">
-      <h1 className="text-white text-center text-4xl">Träningspaket</h1>
-      <div className="flex flex-row overflow-x-auto gap-9 p-4 ">
+      <h1 className="text-center text-4xl">Träningspaket</h1>
+      <div className="flex flex-row overflow-x-auto gap-9 p-4">
         {packages.map((pkt) => (
           <Card
             key={pkt.id}
             imgSrc={activeCardId === pkt.id ? undefined : pkt.imagePath} 
-            className="bg-slate-900 text-white flex flex-col justify-between p-6 space-y-4 transition-transform transform duration-500 ease-out scale-100 hover:scale-105 "
+            className="bg-gray900 flex flex-col justify-between p-6 space-y-4"
           >
             <h5 className="text-2xl font-bold tracking-tight">{pkt.name}</h5>
             
@@ -47,7 +46,7 @@ function Cards() {
                 </ul>
               </div>
             ) : (
-              <p className="text-sm">{pkt.description}</p>
+              <p className="text-sm ">{pkt.description}</p>
             )}
 
             <div className="flex flex-col items-center mt-auto">
@@ -62,7 +61,7 @@ function Cards() {
               >
                 {activeCardId === pkt.id ? "Tillbaka" : "Läs mer"}
               </Button>
-              <FormModal />
+              <FormModal pktName={pkt.name} packages={packages}/>
             </div>
           </Card>
         ))}

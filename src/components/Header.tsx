@@ -2,6 +2,7 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Button, Navbar } from "flowbite-react";
 import Vitlogga from "../../public/assets/images/vitlogga.png";
 import { useState, useEffect } from "react";
+import FormModal from "./FormModal";
 function Header() {
 // @ts-ignore
 
@@ -29,7 +30,7 @@ function Header() {
     <header className="text-white border-b">
       <Navbar
         fluid
-        className={`transition-all duration-300 ease-in-out bg-gray-900 border-t-2 border-gray-700 
+        className={`transition-all duration-300 ease-in-out bg-gray900 border-t-2 border-gray-700 
       ${isVisible ? "fixed top-0 left-0 w-full z-10" : "relative"} 
       ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"}`}
       >
@@ -37,8 +38,8 @@ function Header() {
         <div className="flex gap-4 items-center md:order-2 ">
         
           
-          <Button className="text-white h-auto" >Boka mig</Button>
-          <Button className="text-white h-auto">Kontakt</Button>
+          <FormModal/>
+          <Button className="h-auto"  gradientMonochrome="info">Kontakt</Button>
           <a
             href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"
             target="_blank"

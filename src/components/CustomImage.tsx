@@ -23,11 +23,11 @@ function CustomImage({ src, alt, includeBtn }: CustomImageProps) {
           <img
             src={src}
             alt={alt}
-            className="w-full max-w-2xl mx-auto p-6 border-l-4 border-green-400 bg-gray-900 dark:bg-gray-800 rounded-md"
+            className="w-full max-w-2xl mx-auto p-6 border-l-4 border-green-400 bg-gray900 rounded-md"
           />
           {includeBtn ? (
-            <Button className="w-36 self-center" onClick={() => setShowInfoText(true)}>
-              Mer om mig
+            <Button className="w-36 self-center"  gradientMonochrome="info" onClick={() => setShowInfoText(true)}>
+              Om mig
             </Button>
           ) : null}
         </div>
