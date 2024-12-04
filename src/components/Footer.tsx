@@ -1,6 +1,7 @@
 import { Footer } from "flowbite-react";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
 import vitLogga from "/assets/images/vitlogga.png";
+import { Element } from "react-scroll";
 
 function FooterEnd() {
   return (
@@ -35,6 +36,7 @@ function FooterEnd() {
             />
           </div>
         </div>
+        <Element name="Footer"></Element>
 
         <div className="mb-6 sm:mb-0">
           <h3 className="text-lg font-semibold mb-2">Partners</h3>

@@ -104,7 +104,7 @@ function FormModal({ pktName, packages }: FormModalProps) {
             <div className="text-center flex flex-col gap-3">
               <h2>Tillgängliga träningsprogram</h2>
               <div className="flex flex-wrap gap-4 w-full justify-center">
-                <div className="flex gap-4 w-full flex-wrap sm:w-1/2">
+                <div className="flex gap-4 w-full flex-wrap">
                   {packages && packages.length > 0 ? (
                     packages.map((pkt) => (
                       <Badge
@@ -124,7 +124,7 @@ function FormModal({ pktName, packages }: FormModalProps) {
 
             <div className="max-w-md flex flex-col gap-9">
               <h3>
-                Du har valt att kontakta Henrik angående
+                Du har valt att kontakta Henrik angående <br></br>
                 <b className="text-green-400">{choosenPackage}</b>
               </h3>
               <div className="mb-2 block">

@@ -19,13 +19,12 @@ const henrikQoutes = {
   second:
     "Oavsett om du vill bli starkare, få mer energi i vardagen eller utmana dig själv på nya sätt, är jag här för att hjälpa dig på vägen.",
   third:
-    "Träning ska vara enkel, säker och utföras konsekvent över tid för att ge resultat.",
+    "Mitt mål är att hjälpa dig att hitta rörelseglädjen i vardagen och skapa hållbara vanor som leder till ett friskare och starkare liv. Tillsammans kan vi lägga grunden för din hälsa, oavsett om du siktar på att förbättra din kondition, styrka eller bara må bättre i vardagen",
 };
 
 export const ServiceContext = createContext<ServicePackageContext>({
   packages: [],
 });
-
 
 function App() {
   const [packages, setPackages] = useState<TrainingPackage[]>([]);
@@ -62,7 +61,6 @@ function App() {
     <ServiceContext.Provider value={{ packages }}>
       <Header />
       <main>
-        
         <InfoBoxes text={henrikQoutes.second} />
         <CustomImage
           src={profileimage}
@@ -70,8 +68,10 @@ function App() {
           includeBtn={true}
         />
         <Cards />
+        <section className="xl:flex flex-row justify-center"> 
         <InfoBoxes text={henrikQoutes.third} />
         <CustomImage src={dumbells} alt="PTImage" includeBtn={false} />
+        </section>
       </main>
       <FooterEnd />
     </ServiceContext.Provider>

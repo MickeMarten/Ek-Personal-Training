@@ -4,6 +4,7 @@ import Vitlogga from "../../public/assets/images/vitlogga.png";
 import { useState, useEffect, useContext } from "react";
 import FormModal from "./FormModal";
 import { ServiceContext } from "../App";
+import { scroller } from "react-scroll";
 function Header() {
 // @ts-ignore
 
@@ -22,12 +23,23 @@ function Header() {
       }
     };
 
+ 
+
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+     function scrollToSection():void{
+      scroller.scrollTo("Footer", {
+        duration: 800,
+        delay: 0,
+        smooth:"easeInOutQuart"
+      })
+    };
   return (
     <header className="text-white border-b">
       <Navbar
@@ -43,7 +55,7 @@ function Header() {
      
           
           <FormModal packages={packages}/>
-          <Button className="h-auto"  gradientMonochrome="info">Kontakt</Button>
+          <Button className="h-auto"  gradientMonochrome="info" onClick={scrollToSection}>Kontakt</Button>
           <div className="flex flex-row gap-5"> 
           <a
             href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"

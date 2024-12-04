@@ -12,7 +12,7 @@ function CustomImage({ src, alt, includeBtn }: CustomImageProps) {
         <div className="flex flex-col animate-fade-in sm:tracking-widest text-lg sm:text-xl lg:text-xl xl:text-xl">
           <InfoBoxes
             className="white text-md transition-opacity ease-in duration-10000 opacity-100"
-            text="Jag heter Henrik Ek och är licensierad personlig tränare med en bakgrund som elitspelare i rugby. Under min karriär har jag representerat Sverige i 20 landskamper och spelat på hög nivå både i Sverige och internationellt.Min erfarenhet har lärt mig att rörelse inte bara är för idrottare – det är något som alla kan och bör ha glädje av. Mitt mål är att hjälpa dig att hitta rörelseglädjen i vardagen och skapa hållbara vanor som leder till ett friskare och starkare liv. Tillsammans kan vi lägga grunden för din hälsa, oavsett om du siktar på att förbättra din kondition, styrka eller bara må bättre i vardagen."
+            text="Jag heter Henrik Ek och är licensierad personlig tränare med en bakgrund som elitspelare i rugby. Under min karriär har jag representerat Sverige i 20 landskamper och spelat på hög nivå både i Sverige och internationellt. Min erfarenhet har lärt mig att rörelse inte bara är för idrottare – det är något som alla kan och bör ha glädje av."
           />
           <Button
             className="w-36 self-center mt-4"
