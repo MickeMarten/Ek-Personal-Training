@@ -62,6 +62,7 @@ function App() {
     <ServiceContext.Provider value={{ packages }}>
       <Header />
       <main>
+        
         <InfoBoxes text={henrikQoutes.second} />
         <CustomImage
           src={profileimage}

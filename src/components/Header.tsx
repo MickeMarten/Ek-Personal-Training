@@ -36,12 +36,15 @@ function Header() {
       ${isVisible ? "fixed top-0 left-0 w-full z-10" : "relative"} 
       ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"}`}
       >
-          
-        <div className="flex gap-4 items-center md:order-2 ">
-        
+             <div className="">
+          <a href="http://localhost:5173/#"><img src={Vitlogga} alt="HE-logga" className="w-9" /></a>
+        </div>
+        <div className="flex gap-4 md:order-2 sm:gap-16 xl:mr-[700px] ">
+     
           
           <FormModal packages={packages}/>
           <Button className="h-auto"  gradientMonochrome="info">Kontakt</Button>
+          <div className="flex flex-row gap-5"> 
           <a
             href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"
             target="_blank"
@@ -58,23 +61,22 @@ function Header() {
           >
             <FaInstagram className="text-4xl" />
           </a>
+          </div>
 
-          <div className="">
-          <a href="http://localhost:5173/#"><img src={Vitlogga} alt="HE-logga" className="w-9" /></a>
-        </div>
+        
 
         </div>
       </Navbar>
 
-      <div className=" lg:py-4 flex items-center flex-col gap-5 mb-10 ">
-        <div className="w-44">
+      <div className=" lg:py-4 flex items-center flex-col gap-5 mb-10 lg:flex-row ">
+        <div className="w-44 sm:w-48 lg:w-56">
           <img src={Vitlogga} alt="HE-logga" className="object-contain" />
         </div>
-        <div className="text-center">
-          <h1 className="text-2xl lg:text-3xl font-bold">
+        <div className="text-center xl:ml-64 ">
+          <h1 className="text-2xl lg:text-6xl sm:text-4xl font-bold">
             Henrik Ek - Personlig tränare
           </h1>
-          <h2>Tillsammans skapar vi ditt bästa jag</h2>
+          <h2 className="sm:text-2xl lg:mt-3">Tillsammans skapar vi ditt bästa jag</h2>
         </div>
       </div>
     </header>

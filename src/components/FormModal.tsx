@@ -11,23 +11,62 @@ import { HiX } from "react-icons/hi";
 import { MdAnnouncement } from "react-icons/md";
 import { useState } from "react";
 import { FormModalProps } from "../models/ForModalProps";
+import emailjs from "@emailjs/browser";
 
-
-
-
-function FormModal( { pktName, packages }: FormModalProps ) {
+function FormModal({ pktName, packages }: FormModalProps) {
   const [modalIsActive, setModalIsActive] = useState<boolean>(false);
-  const [choosenPackage, setChoosenPackage] = useState<string | undefined>(pktName);
+  const [confirmationModal, setConfirmationModal] = useState<boolean>(false)
+  const [choosenPackage, setChoosenPackage] = useState<string | undefined>(
+    pktName
+  );
+  const [userEmail, setUserEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [emailIsValid, setEmailIsValid] = useState<boolean>(true); 
 
   function openAndCloseModal(): void {
     setModalIsActive((prevState) => !prevState);
   }
-  console.log(choosenPackage);
 
-  
+  function validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+(\.[^\s@]+)*@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const email = e.target.value;
+    setUserEmail(email);
+    setEmailIsValid(validateEmail(email)); 
+  }
+
+  function sendEmail(e: React.FormEvent) {
+    e.preventDefault();
+    setConfirmationModal(true)
+
+    if (!emailIsValid) {
+      console.error("E-posten är ogiltig, försök igen.");
+      return;
+    }
+
+    try {
+      emailjs.send(
+        "service_mzd78us",
+        "template_jw8ycop",
+        {
+          user_email: userEmail,
+          choosen_package: choosenPackage,
+          message: message,
+        },
+        "ONXY_44hxPL1AZHT2"
+      );
+    } catch (error) {
+      console.error("Något gick fel med mailservice", error);
+    }
+
+    console.log("Email skickades", userEmail, choosenPackage, message);
+  }
+
   return (
     <>
-    
       <Button
         gradientMonochrome="info"
         className="w-24"
@@ -42,62 +81,81 @@ function FormModal( { pktName, packages }: FormModalProps ) {
         onClose={openAndCloseModal}
         className="bg-slate-400 animate-fade-in"
       >
-      
-
         <Modal.Body className="bg-gray900 rounded-md ">
           <div className="space-y-6 flex flex-col mb-6 mt-8">
-          <h1 className="text-primary text-center text-3xl">Kontakta Henrik!</h1>
+            <h1 className="text-primary text-center text-3xl">
+              Kontakta Henrik!
+            </h1>
 
-              <div className="mb-2 block ">
-                <Label
-                  htmlFor="email"
-                  value="Din email"
-                  className="text-primary"
-                />
-              <TextInput placeholder="Exempel@email.com" required />
+            <div className="mb-2 block ">
+              <Label htmlFor="email" value="Din email" className="text-primary" />
+              <TextInput
+                placeholder="Exempel@Email.com"
+                type="email"
+                required
+                color={emailIsValid ? "success" : "failure"} 
+                onChange={handleEmailChange}
+              />
+              {!emailIsValid && (
+                <span className="text-sm text-red-500">Email är inte giltig!</span>
+              )}
+            </div>
 
-              </div>
-
-              <div className="text-center flex flex-col gap-3">
+            <div className="text-center flex flex-col gap-3">
               <h2>Tillgängliga träningsprogram</h2>
-       <div className="flex flex-wrap gap-4 w-full justify-center">
+              <div className="flex flex-wrap gap-4 w-full justify-center">
                 <div className="flex gap-4 w-full flex-wrap sm:w-1/2">
-                {packages && packages.length > 0 ? (
+                  {packages && packages.length > 0 ? (
                     packages.map((pkt) => (
-                      <Badge key={pkt.id} onClick={()=>setChoosenPackage(pkt.name)}>{pkt.name}</Badge>
+                      <Badge
+                        key={pkt.id}
+                        onClick={() => setChoosenPackage(pkt.name)}
+                      >
+                        {pkt.name}
+                      </Badge>
                     ))
                   ) : (
                     <p>Oj, något hände när paketen laddades, prova igen.</p>
                   )}
-                  <Badge onClick={()=>setChoosenPackage("Övrigt")}>Övrigt</Badge>
+                  <Badge onClick={() => setChoosenPackage("Övrigt")}>Övrigt</Badge>
                 </div>
-              </div> 
+              </div>
             </div>
-      
 
             <div className="max-w-md flex flex-col gap-9">
-              <h3>Du har valt att kontakta Henrik angående <b className="text-green-400">{choosenPackage}</b></h3>
+              <h3>
+                Du har valt att kontakta Henrik angående
+                <b className="text-green-400">{choosenPackage}</b>
+              </h3>
               <div className="mb-2 block">
                 <Label
                   htmlFor="comment"
                   value="Ditt meddelande"
                   className="text-primary"
                 />
-              <Textarea placeholder="Hej Henrik!" required rows={4} />
-
+                <Textarea
+                  required
+                  rows={4}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
               </div>
             </div>
-        
 
             <div className="w-full flex justify-between">
-              <Button  gradientMonochrome="info" className="w-24">Skicka</Button>
               <Button
-        gradientMonochrome="info"
-        className="w-24"
-        onClick={() => openAndCloseModal()}
-      >
-       Avbryt
-      </Button>
+                gradientMonochrome="info"
+                className="w-24"
+                onClick={sendEmail}
+              >
+                Skicka
+              </Button>
+              <Button
+                gradientMonochrome="info"
+                className="w-24"
+                onClick={() => openAndCloseModal()}
+              >
+                Avbryt
+              </Button>
             </div>
           </div>
           <Banner>
@@ -108,14 +166,29 @@ function FormModal( { pktName, packages }: FormModalProps ) {
                   Vi kommer inte att spara din data!
                 </p>
               </div>
-              <Banner.CollapseButton
-                color="gray"
-                className=" text-gray900"
-              >
+              <Banner.CollapseButton color="gray" className=" text-gray900">
                 <HiX className="h-4 w-4" />
               </Banner.CollapseButton>
             </div>
           </Banner>
+        
+          <div
+  className={
+    confirmationModal
+      ? "absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
+      : "hidden"
+  }
+>
+  <div className="bg-slate-900 p-6 rounded-lg text-white text-center w-3/4 md:w-1/2">
+    <p className="mb-4">
+      Tack för du mailar Henrik Ek personligträning, vi hör av oss så fort vi kan!
+    </p>
+    <Button onClick={() =>{setModalIsActive(false); setConfirmationModal(false)} } gradientMonochrome="info" className="w-full">
+      Ok
+    </Button>
+  </div>
+</div>
+
         </Modal.Body>
       </Modal>
     </>
