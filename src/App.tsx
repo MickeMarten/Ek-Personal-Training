@@ -68,10 +68,8 @@ function App() {
           includeBtn={true}
         />
         <Cards />
-        <section className="xl:flex flex-row justify-center"> 
         <InfoBoxes text={henrikQoutes.third} />
         <CustomImage src={dumbells} alt="PTImage" includeBtn={false} />
-        </section>
       </main>
       <FooterEnd />
     </ServiceContext.Provider>

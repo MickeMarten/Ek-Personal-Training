@@ -28,24 +28,30 @@ function FormModal({ pktName, packages }: FormModalProps) {
   }
 
   function validateEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+(\.[^\s@]+)*@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
     const email = e.target.value;
     setUserEmail(email);
-    setEmailIsValid(validateEmail(email)); 
+    if (email.length === 0) {
+      setEmailIsValid(true); 
+    } else {
+      setEmailIsValid(validateEmail(email));
+    }
   }
 
   function sendEmail(e: React.FormEvent) {
     e.preventDefault();
-    setConfirmationModal(true)
 
-    if (!emailIsValid) {
+    if (!emailIsValid || userEmail.length < 3 || !userEmail.includes("@")) {
       console.error("E-posten är ogiltig, försök igen.");
       return;
     }
+
+    setConfirmationModal(true)
+
 
     try {
       emailjs.send(
