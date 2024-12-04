@@ -15,13 +15,13 @@ import emailjs from "@emailjs/browser";
 
 function FormModal({ pktName, packages }: FormModalProps) {
   const [modalIsActive, setModalIsActive] = useState<boolean>(false);
-  const [confirmationModal, setConfirmationModal] = useState<boolean>(false)
+  const [confirmationModal, setConfirmationModal] = useState<boolean>(false);
   const [choosenPackage, setChoosenPackage] = useState<string | undefined>(
     pktName
   );
   const [userEmail, setUserEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [emailIsValid, setEmailIsValid] = useState<boolean>(true); 
+  const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
 
   function openAndCloseModal(): void {
     setModalIsActive((prevState) => !prevState);
@@ -36,7 +36,7 @@ function FormModal({ pktName, packages }: FormModalProps) {
     const email = e.target.value;
     setUserEmail(email);
     if (email.length === 0) {
-      setEmailIsValid(true); 
+      setEmailIsValid(true);
     } else {
       setEmailIsValid(validateEmail(email));
     }
@@ -50,8 +50,7 @@ function FormModal({ pktName, packages }: FormModalProps) {
       return;
     }
 
-    setConfirmationModal(true)
-
+    setConfirmationModal(true);
 
     try {
       emailjs.send(
@@ -94,16 +93,22 @@ function FormModal({ pktName, packages }: FormModalProps) {
             </h1>
 
             <div className="mb-2 block ">
-              <Label htmlFor="email" value="Din email" className="text-primary" />
+              <Label
+                htmlFor="email"
+                value="Din email"
+                className="text-primary"
+              />
               <TextInput
                 placeholder="Exempel@Email.com"
                 type="email"
                 required
-                color={emailIsValid ? "success" : "failure"} 
+                color={emailIsValid ? "success" : "failure"}
                 onChange={handleEmailChange}
               />
               {!emailIsValid && (
-                <span className="text-sm text-red-500">Email är inte giltig!</span>
+                <span className="text-sm text-red-500">
+                  Email är inte giltig!
+                </span>
               )}
             </div>
 
@@ -123,7 +128,9 @@ function FormModal({ pktName, packages }: FormModalProps) {
                   ) : (
                     <p>Oj, något hände när paketen laddades, prova igen.</p>
                   )}
-                  <Badge onClick={() => setChoosenPackage("Övrigt")}>Övrigt</Badge>
+                  <Badge onClick={() => setChoosenPackage("Övrigt")}>
+                    Övrigt
+                  </Badge>
                 </div>
               </div>
             </div>
@@ -148,7 +155,6 @@ function FormModal({ pktName, packages }: FormModalProps) {
             </div>
 
             <div className="w-full flex justify-between">
-          
               <Button
                 gradientMonochrome="info"
                 className="w-24"
@@ -178,24 +184,31 @@ function FormModal({ pktName, packages }: FormModalProps) {
               </Banner.CollapseButton>
             </div>
           </Banner>
-        
-          <div
-  className={
-    confirmationModal
-      ? "absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
-      : "hidden"
-  }
->
-  <div className="bg-slate-900 p-6 rounded-lg text-white text-center w-3/4 md:w-1/2">
-    <p className="mb-4">
-      Tack för du mailar Henrik Ek personligträning, vi hör av oss så fort vi kan!
-    </p>
-    <Button onClick={() =>{setModalIsActive(false); setConfirmationModal(false)} } gradientMonochrome="info" className="w-full">
-      Ok
-    </Button>
-  </div>
-</div>
 
+          <div
+            className={
+              confirmationModal
+                ? "absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
+                : "hidden"
+            }
+          >
+            <div className="bg-slate-900 p-6 rounded-lg text-white text-center w-3/4 md:w-1/2">
+              <p className="mb-4">
+                Tack för du mailar Henrik Ek personligträning, vi hör av oss så
+                fort vi kan!
+              </p>
+              <Button
+                onClick={() => {
+                  setModalIsActive(false);
+                  setConfirmationModal(false);
+                }}
+                gradientMonochrome="info"
+                className="w-full"
+              >
+                Ok
+              </Button>
+            </div>
+          </div>
         </Modal.Body>
       </Modal>
     </>

@@ -1,6 +1,7 @@
-export interface CustomImageProps {
+export interface ImageTextBoxProps {
     src: string; 
     alt: string;  
+    text:string;
     className?: string; 
 
   }

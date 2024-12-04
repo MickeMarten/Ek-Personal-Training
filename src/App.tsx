@@ -2,7 +2,7 @@ import "./App.css";
 import FooterEnd from "./components/Footer";
 import Header from "./components/Header";
 import Cards from "./components/Cards";
-import InfoBoxes from "./components/TextInfoBoxes";
+import InfoBoxes from "./components/CustomText";
 import CustomImage from "./components/CustomImage";
 import dumbells from "../public/assets/images/dumbells.jpg";
 import profileimage from "../public/assets/images/image0.jpeg";
@@ -11,9 +11,12 @@ import { createContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { TrainingPackage } from "./models/TrainingPackages";
 import { ServicePackageContext } from "./models/TrainingPackages";
+import ImageTextBox from "./components/ImageTextBox";
+import ProfileImage from "./components/ProfileImage";
+import BgImage from "./components/BgImage";
 
 //Flytta qoutes
-const henrikQoutes = {
+export const henrikQoutes = {
   first:
     "Min filosofi är enkel, träning ska vara okomplicerad och leda till stora framgångar över tid. ",
   second:
@@ -60,16 +63,22 @@ function App() {
   return (
     <ServiceContext.Provider value={{ packages }}>
       <Header />
-      <main>
-        <InfoBoxes text={henrikQoutes.second} />
-        <CustomImage
-          src={profileimage}
-          alt="HenrikProfilePic"
-          includeBtn={true}
+      <main className="">
+        <BgImage />
+
+        <InfoBoxes text={henrikQoutes.second} className="xl:hidden" />
+        <ImageTextBox
+          src={dumbells}
+          alt="image"
+          text={henrikQoutes.second}
+          className="flex-row-reverse mt-5"
         />
+
+        <ProfileImage src={profileimage} alt="Henrik Ek profilbild" />
         <Cards />
-        <InfoBoxes text={henrikQoutes.third} />
-        <CustomImage src={dumbells} alt="PTImage" includeBtn={false} />
+        <InfoBoxes text={henrikQoutes.third} className="xl:hidden" />
+        <CustomImage src={dumbells} alt="image" className="xl:hidden" />
+        <ImageTextBox src={dumbells} alt="image" text={henrikQoutes.third} />
       </main>
       <FooterEnd />
     </ServiceContext.Provider>
