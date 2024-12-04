@@ -142,19 +142,20 @@ function FormModal({ pktName, packages }: FormModalProps) {
             </div>
 
             <div className="w-full flex justify-between">
-              <Button
-                gradientMonochrome="info"
-                className="w-24"
-                onClick={sendEmail}
-              >
-                Skicka
-              </Button>
+          
               <Button
                 gradientMonochrome="info"
                 className="w-24"
                 onClick={() => openAndCloseModal()}
               >
                 Avbryt
+              </Button>
+              <Button
+                gradientMonochrome="info"
+                className="w-24"
+                onClick={sendEmail}
+              >
+                Skicka
               </Button>
             </div>
           </div>
