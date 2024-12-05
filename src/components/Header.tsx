@@ -82,15 +82,15 @@ function Header() {
         </div>
       </nav>
 
-      <div className=" lg:py-4 flex items-center flex-col gap-5 mb-10 lg:flex-row ">
+      <div className=" lg:py-4 flex items-center xl:justify-start flex-col gap-5 mb-10 lg:flex-row">
         <div className="w-44 sm:w-48 lg:w-56">
           <img src={Vitlogga} alt="HE-logga" className="object-contain" />
         </div>
-        <div className="text-center xl:ml-64">
+        <div className="text-center xl:ml-28 xl:self-center">
           <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold">
             Henrik Ek - Personlig tränare
           </h1>
-          <h2 className="sm:text-2xl lg:mt-3">
+          <h2 className="sm:text-2xl lg:mt-3 xl:text-4xl">
             Tillsammans skapar vi ditt bästa jag
           </h2>
         </div>

@@ -33,3 +33,5 @@ sätt max width på texten i textboxes
 gör bilderna mindre.
 
 Centrera Footer info.
+
+Chip för priser. 

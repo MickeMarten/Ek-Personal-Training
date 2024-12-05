@@ -71,14 +71,14 @@ function App() {
           src={dumbells}
           alt="image"
           text={henrikQoutes.second}
-          className="flex-row-reverse mt-5"
+          className="flex-row-reverse mt-5 xl:mx-36"
         />
 
         <ProfileImage src={profileimage} alt="Henrik Ek profilbild" />
         <Cards />
         <InfoBoxes text={henrikQoutes.third} className="xl:hidden" />
         <CustomImage src={dumbells} alt="image" className="xl:hidden" />
-        <ImageTextBox src={dumbells} alt="image" text={henrikQoutes.third} />
+        <ImageTextBox src={dumbells} alt="image" className=" xl:mx-20 xl:mb-12" text={henrikQoutes.third} />
       </main>
       <FooterEnd />
     </ServiceContext.Provider>
