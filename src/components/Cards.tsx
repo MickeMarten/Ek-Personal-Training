@@ -16,7 +16,7 @@ function Cards() {
     <section className="py-8 bg-black w-full xl:flex xl:justify-center xl:mt-10 xl:mb-10">
       <div className="xl:w-3/5">
 
-        <h1 className="text-center text-6xl mb-5">Träningspaket</h1>
+        <h1 className="text-center text-4xl xl:text-6xl mb-5">Träningspaket</h1>
         <div className="flex flex-row overflow-x-scroll gap-9 p-4 xl:overflow-hidden xl:grid xl:grid-cols-2 xl:gap-10">
           {packages.map((pkt) => (
             <Card

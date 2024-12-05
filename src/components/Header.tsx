@@ -44,9 +44,9 @@ function Header() {
       ${isVisible ? "fixed top-0 left-0 w-full z-10" : "relative"} 
       ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"}`}
       >
-        <div className="flex items-center justify-evenly content-center h-full">
-          <div className="justify-self-start">
-            <a href="http://localhost:5173/#">
+        <div className="flex items-center justify-evenly content-center h-full w-full">
+          <div className="">
+            <a href="http://localhost:5173/#" className="">
               <img src={Vitlogga} alt="HE-logga" className="w-12" />
             </a>
           </div>
@@ -83,10 +83,10 @@ function Header() {
       </nav>
 
       <div className=" lg:py-4 flex items-center xl:justify-start flex-col gap-5 mb-10 lg:flex-row">
-        <div className="w-44 sm:w-48 lg:w-56">
+        <div className="w-44 sm:w-48 lg:w-56 2xl:ml-8">
           <img src={Vitlogga} alt="HE-logga" className="object-contain" />
         </div>
-        <div className="text-center xl:ml-28 xl:self-center">
+        <div className="text-center xl:ml-28 xl:self-center 2xl:ml-60">
           <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold">
             Henrik Ek - Personlig tränare
           </h1>
