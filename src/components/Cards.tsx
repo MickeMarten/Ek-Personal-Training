@@ -1,6 +1,6 @@
 import { Button, Card } from "flowbite-react";
 import { useContext, useState } from "react";
-import { ServiceContext } from "../App";
+import { ServiceContext } from "../pages/home/Home";
 import FormModal from "./FormModal";
 
 function Cards() {

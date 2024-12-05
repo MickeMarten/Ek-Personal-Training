@@ -12,7 +12,13 @@ function ProfileImage({ src, alt }: CustomImageProps) {
         <div className="flex flex-col animate-fade-in text-lg sm:text-xl lg:text-xl xl:text-xl leading-relaxed sm:tracking-wide">
           <InfoBoxes
             className="white text-md transition-opacity ease-in duration-10000 opacity-100"
-            text="Jag heter Henrik Ek och är licensierad personlig tränare med en bakgrund som elitspelare i rugby. Under min karriär har jag representerat Sverige i 20 landskamper och spelat på hög nivå både i Sverige och internationellt. Min erfarenhet har lärt mig att rörelse inte bara är för idrottare – det är något som alla kan och bör ha glädje av."
+            
+            text={
+              <>
+                Jag heter Henrik Ek och är licensierad personlig tränare med en bakgrund som elitspelare i rugby. <br /><br />
+                Under min karriär har jag representerat Sverige i 20 landskamper och spelat på hög nivå både i Sverige och internationellt. <br />
+                Min erfarenhet har lärt mig att rörelse inte bara är för idrottare – det är något som alla kan och bör ha glädje av.
+              </>}
           />
           <Button
             size="lg"

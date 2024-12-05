@@ -3,7 +3,7 @@ import { Button } from "flowbite-react";
 import Vitlogga from "../../public/assets/images/vitlogga.png";
 import { useState, useEffect, useContext } from "react";
 import FormModal from "./FormModal";
-import { ServiceContext } from "../App";
+import { ServiceContext } from "../pages/home/Home";
 import { scroller } from "react-scroll";
 function Header() {
   // @ts-ignore
@@ -46,7 +46,7 @@ function Header() {
       >
         <div className="flex items-center justify-evenly content-center h-full w-full">
           <div className="">
-            <a href="http://localhost:5173/#" className="">
+            <a href="/" className="">
               <img src={Vitlogga} alt="HE-logga" className="w-12" />
             </a>
           </div>

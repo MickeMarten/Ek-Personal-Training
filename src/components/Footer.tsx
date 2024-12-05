@@ -8,23 +8,24 @@ function FooterEnd() {
     <Footer container className="w-full bg-gray900 rounded-b-sm border-t py-8">
       <div className="w-full text-white">
         <div className="sm:flex sm:justify-between sm:items-center">
-          <a href="/">
-            <img src={vitLogga} alt="HE-logo" className="h-16 mb-4 sm:mb-0" />
+          <a href="/" >
+            <img src={vitLogga} alt="HE-logo" className="h-14  mb-4 sm:mb-0" />
           </a>
 
           <div className="sm:flex gap-12">
             <div className="mb-6 sm:mb-0">
-              <h3 className="text-lg font-semibold mb-2">Contact</h3>
+              <h3 className="text-lg font-semibold mb-2">Kontakt</h3>
               <ul>
                 <Footer.Link href="tel:+46736754018">+46736754018</Footer.Link>
                 <Footer.Link href="mailto:Kontakt@henrikekpt.se">
                   Kontakt@henrikekpt.se
                 </Footer.Link>
+                
               </ul>
             </div>
 
             <div className="mb-6 sm:mb-0">
-              <h3 className="text-lg font-semibold mb-2">Social Media</h3>
+              <h3 className="text-lg font-semibold mb-2">Sociala Medier</h3>
               <div className="flex gap-4">
                 <Footer.Icon
                   href="https://www.instagram.com/henrikekpersonaltraining/"
@@ -41,7 +42,7 @@ function FooterEnd() {
             <Element name="Footer"></Element>
 
             <div className="mb-6 sm:mb-0">
-              <h3 className="text-lg font-semibold mb-2">Partners</h3>
+              <h3 className="text-lg font-semibold mb-2">Samarbeten</h3>
               <ul>
                 <Footer.Link
                   href="https://example.com"
