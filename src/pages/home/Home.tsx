@@ -14,7 +14,6 @@ import ImageTextBox from "../../components/ImageTextBox";
 import ProfileImage from "../../components/ProfileImage";
 import BgImage from "../../components/BgImage";
 import HomeSEO from "./HomeSEO";
-import FormModal from "../../components/FormModal";
 
 //Flytta qoutes
 export const henrikQoutes = {
@@ -63,7 +62,7 @@ function Home() {
 
   return (
     <ServiceContext.Provider value={{ packages }}>
-        <HomeSEO/>
+      <HomeSEO />
       <Header />
       <main className="">
         <BgImage />
@@ -83,7 +82,7 @@ function Home() {
           src={dumbells}
           alt="image"
           className=" xl:mx-20 xl:mb-12 2xl:mx-28 2xl:mb-14 justify-center"
-          text={henrikQoutes.third }
+          text={henrikQoutes.third}
         />
       </main>
       <FooterEnd />

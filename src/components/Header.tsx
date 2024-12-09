@@ -1,5 +1,5 @@
 import { FaBars, FaEnvelope, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Button, Dropdown } from "flowbite-react";
+import { Dropdown } from "flowbite-react";
 import Vitlogga from "../../public/assets/images/vitlogga.png";
 import { useContext, useEffect, useState } from "react";
 import FormModal from "./FormModal";
