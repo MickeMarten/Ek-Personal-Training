@@ -14,6 +14,7 @@ import ImageTextBox from "../../components/ImageTextBox";
 import ProfileImage from "../../components/ProfileImage";
 import BgImage from "../../components/BgImage";
 import HomeSEO from "./HomeSEO";
+import FormModal from "../../components/FormModal";
 
 //Flytta qoutes
 export const henrikQoutes = {
@@ -66,7 +67,6 @@ function Home() {
       <Header />
       <main className="">
         <BgImage />
-
         <InfoBoxes text={henrikQoutes.second} className="xl:hidden" />
         <ImageTextBox
           src={dumbells}

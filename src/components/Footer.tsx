@@ -39,7 +39,6 @@ function FooterEnd() {
                 />
               </div>
             </div>
-            <Element name="Footer"></Element>
 
             <div className="mb-6 sm:mb-0">
               <h3 className="text-lg font-semibold mb-2">Samarbeten</h3>
@@ -59,6 +58,7 @@ function FooterEnd() {
               </ul>
             </div>
           </div>
+
         </div>
 
         <Footer.Divider className="my-6 border-gray-700" />
@@ -70,6 +70,8 @@ function FooterEnd() {
           className="text-center text-gray-400"
         />
       </div>
+      <Element name="Footer"></Element>
+
     </Footer>
   );
 }
