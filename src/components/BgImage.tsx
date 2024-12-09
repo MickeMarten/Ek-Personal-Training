@@ -1,4 +1,4 @@
-import Vitlogga from "../../public/assets/images/vitlogga.png";
+import Vitlogga from "../assets/images/vitlogga.png";
 
 function BgImage() {
   return (

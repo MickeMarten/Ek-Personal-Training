@@ -1,6 +1,6 @@
 import { Footer } from "flowbite-react";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
-import vitLogga from "/assets/images/vitlogga.png";
+import vitLogga from "../assets/images/vitlogga.png";
 import { Element } from "react-scroll";
 
 function FooterEnd() {

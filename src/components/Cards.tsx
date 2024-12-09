@@ -20,12 +20,12 @@ function Cards() {
       <div className="xl:w-3/5">
 
         <h1 className="text-center text-4xl xl:text-6xl mb-5">Träningspaket</h1>
-        <div className="flex flex-row overflow-x-scroll gap-9 p-4 xl:overflow-hidden xl:grid xl:grid-cols-2 xl:gap-10">
+        <div className="flex flex-row overflow-x-scroll gap-9 p-4 xl:overflow-hidden xl:grid xl:grid-cols-2 xl:gap-10  ">
           {packages.map((pkt) => (
             <Card
               key={pkt.id}
               imgSrc={activeCardId === pkt.id ? undefined : pkt.imagePath}
-              className="relative bg-gray900 flex flex-col justify-between p-6 space-y-4 w-96 mx-auto"
+              className="relative bg-gray900 flex flex-col justify-between p-6 space-y-4 w-96 mx-auto transition-transform transform duration-500 ease-out scale-100 hover:scale-105 "
             >
               <div className="absolute top-4 right-4 bg-green-500 text-white text-sm xl:text-lg font-bold px-3 py-1 rounded-lg shadow-lg">
                 {pkt.price}kr

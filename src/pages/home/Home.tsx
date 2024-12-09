@@ -4,7 +4,7 @@ import Cards from "../../components/Cards";
 import InfoBoxes from "../../components/CustomText";
 import CustomImage from "../../components/CustomImage";
 import dumbells from "/public/assets/images/dumbells.jpg";
-import profileimage from "/public/assets/images/image0.jpeg";
+import HepProfile from "../../assets/images/henrik.jpeg"
 import { db } from "../../services/firebaseConfig";
 import { createContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -74,7 +74,7 @@ function Home() {
           className="xl:mx-20 xl:mb-12 2xl:mx-28 justify-center flex-row-reverse xl:mt-10"
         />
 
-        <ProfileImage src={profileimage} alt="Henrik Ek profilbild" />
+        <ProfileImage src={HepProfile} alt="Henrik Ek profilbild" />
         <Cards />
         <InfoBoxes text={henrikQoutes.third} className="xl:hidden" />
         <CustomImage src={dumbells} alt="image" className="xl:hidden" />

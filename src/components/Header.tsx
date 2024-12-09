@@ -1,6 +1,6 @@
 import { FaBars, FaEnvelope, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Dropdown } from "flowbite-react";
-import Vitlogga from "../../public/assets/images/vitlogga.png";
+import Vitlogga from "../assets/images/vitlogga.png";
 import { useContext, useEffect, useState } from "react";
 import FormModal from "./FormModal";
 import { ServiceContext } from "../pages/home/Home";
@@ -66,13 +66,16 @@ function Header() {
 
             <Dropdown
               label=""
+              className=""
               dismissOnClick={true}
               renderTrigger={() => (
                 <span>
-                  <FaBars className="h-10 w-10" />
+                  <FaBars className="h-10 w-10 cursor-pointer" />
                 </span>
               )}
             >
+
+            
               <Dropdown.Item
                 className="hover:text-gray-400"
                 onClick={() => {
@@ -82,6 +85,7 @@ function Header() {
                 Träningspaket
               </Dropdown.Item>
               <Dropdown.Item
+              className="hover:text-gray-400"
                 onClick={() => {
                   scrollToSection("Footer");
                 }}
@@ -90,6 +94,7 @@ function Header() {
               </Dropdown.Item>
 
               <Dropdown.Item
+              className="hover:text-gray-400"
                 onClick={() => {
                   scrollToSection("Footer");
                 }}
@@ -97,14 +102,15 @@ function Header() {
                 Samarbeten
               </Dropdown.Item>
               <Dropdown.Item
+              className="hover:text-gray-400"
                 onClick={() => {
                   scrollToSection("About");
                 }}
               >
                 Om Henrik
               </Dropdown.Item>
-              <Dropdown.Item icon={FaInstagram}>Instagram</Dropdown.Item>
-              <Dropdown.Item icon={FaLinkedin}>Linkedin</Dropdown.Item>
+              <Dropdown.Item className="hover:text-gray-400" icon={FaInstagram} as="a"><a href="https://www.instagram.com/henrikekpersonaltraining/">Instagram</a></Dropdown.Item>
+              <Dropdown.Item className="hover:text-gray-400" icon={FaLinkedin} as="a"><a href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card">LinkedIn</a></Dropdown.Item>
             </Dropdown>
           </div>
         </div>
