@@ -2,12 +2,15 @@ import { Button } from "flowbite-react";
 import { useState } from "react";
 import { CustomImageProps } from "../models/CustomImageProps";
 import InfoBoxes from "./CustomText";
+import { Element } from "react-scroll";
 
 function ProfileImage({ src, alt }: CustomImageProps) {
   const [showInfoText, setShowInfoText] = useState<boolean>(false);
 
   return (
-    <>
+    <section> 
+          <Element name="About"></Element>
+
       {showInfoText ? (
         <div className="flex flex-col animate-fade-in text-lg sm:text-xl lg:text-xl xl:text-xl leading-relaxed sm:tracking-wide">
           <InfoBoxes
@@ -15,7 +18,7 @@ function ProfileImage({ src, alt }: CustomImageProps) {
             
             text={
               <>
-                Jag heter Henrik Ek och är licensierad personlig tränare med en bakgrund som elitspelare i rugby. <br /><br />
+                Jag heter Henrik Ek och är licensierad personlig tränare med en bakgrund som elitspelare i rugby. <br />
                 Under min karriär har jag representerat Sverige i 20 landskamper och spelat på hög nivå både i Sverige och internationellt. <br />
                 Min erfarenhet har lärt mig att rörelse inte bara är för idrottare – det är något som alla kan och bör ha glädje av.
               </>}
@@ -47,7 +50,7 @@ function ProfileImage({ src, alt }: CustomImageProps) {
           </Button>
         </div>
       )}
-    </>
+    </section>
   );
 }
 

@@ -30,8 +30,8 @@ function Header() {
     };
   }, []);
 
-  function scrollToSection(): void {
-    scroller.scrollTo("Footer", {
+  function scrollToSection(section: string): void {
+    scroller.scrollTo(section, {
       duration: 800,
       delay: 0,
       smooth: "easeInOutQuart",
@@ -73,19 +73,36 @@ function Header() {
                 </span>
               )}
             >
-              <Dropdown.Item className="hover:text-gray-400">
+              <Dropdown.Item
+                className="hover:text-gray-400"
+                onClick={() => {
+                  scrollToSection("Cards");
+                }}
+              >
                 Träningspaket
               </Dropdown.Item>
               <Dropdown.Item
-                onClick={scrollToSection}
+                onClick={() => {
+                  scrollToSection("Footer");
+                }}
               >
                 <span>Kontaktinformation</span>
               </Dropdown.Item>
-          
-              <Dropdown.Item onClick={scrollToSection}>
+
+              <Dropdown.Item
+                onClick={() => {
+                  scrollToSection("Footer");
+                }}
+              >
                 Samarbeten
               </Dropdown.Item>
-              <Dropdown.Item>Om Henrik</Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => {
+                  scrollToSection("About");
+                }}
+              >
+                Om Henrik
+              </Dropdown.Item>
               <Dropdown.Item icon={FaInstagram}>Instagram</Dropdown.Item>
               <Dropdown.Item icon={FaLinkedin}>Linkedin</Dropdown.Item>
             </Dropdown>

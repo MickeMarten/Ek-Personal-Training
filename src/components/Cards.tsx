@@ -1,6 +1,7 @@
 import { Button, Card } from "flowbite-react";
 import { useContext, useState } from "react";
 import { ServiceContext } from "../pages/home/Home";
+import { Element } from "react-scroll";
 import FormModal from "./FormModal";
 
 function Cards() {
@@ -14,6 +15,8 @@ function Cards() {
 
   return (
     <section className="py-8 bg-black w-full xl:flex xl:justify-center xl:mt-10 xl:mb-10">
+      <Element name="Cards"></Element>
+
       <div className="xl:w-3/5">
 
         <h1 className="text-center text-4xl xl:text-6xl mb-5">Träningspaket</h1>
@@ -59,7 +62,6 @@ function Cards() {
           ))}
         </div>
       </div>
-
     </section>
   );
 }
