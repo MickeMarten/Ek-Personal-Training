@@ -1,10 +1,10 @@
 import { Button, Card } from "flowbite-react";
 import { useContext, useState } from "react";
-import { ServiceContext } from "../pages/home/Home";
+import { ServiceContext } from "../../pages/home/Home";
 import { Element } from "react-scroll";
-import FormModal from "./FormModal";
+import FormModal from "../modal/FormModal";
 
-function Cards() {
+function CardsSection() {
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   const { packages } = useContext(ServiceContext);
@@ -66,4 +66,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default CardsSection;

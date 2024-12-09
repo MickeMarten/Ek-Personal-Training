@@ -1,18 +1,19 @@
 import { Button } from "flowbite-react";
 import { useState } from "react";
-import { CustomImageProps } from "../models/CustomImageProps";
+import { CustomImageProps } from "../../models/CustomImageProps";
 import InfoBoxes from "./CustomText";
 import { Element } from "react-scroll";
+import Vitlogga from "../../assets/images/vitlogga.png";
 
-function ProfileImage({ src, alt }: CustomImageProps) {
+function ProfileSection({ src, alt }: CustomImageProps) {
   const [showInfoText, setShowInfoText] = useState<boolean>(false);
 
   return (
-    <section> 
+    <section className="xl:flex xl:flex-row-reverse xl:justify-center xl:mr-96"> 
           <Element name="About"></Element>
 
       {showInfoText ? (
-        <div className="flex flex-col animate-fade-in text-lg sm:text-xl lg:text-xl xl:text-xl leading-relaxed sm:tracking-wide">
+        <div className="flex flex-col animate-fade-in text-lg sm:text-xl lg:text-xl xl:text-xl leading-relaxed sm:tracking-wide ">
           <InfoBoxes
             className="white text-md transition-opacity ease-in duration-10000 opacity-100"
             
@@ -33,7 +34,7 @@ function ProfileImage({ src, alt }: CustomImageProps) {
           </Button>
         </div>
       ) : (
-        <div className="px-4 py-4 flex flex-col gap-4">
+        <div className="px-4 py-4 flex flex-col gap-4 ">
      
           <img
             src={src}
@@ -50,8 +51,15 @@ function ProfileImage({ src, alt }: CustomImageProps) {
           </Button>
         </div>
       )}
+      <div className="hidden xl:block  xl:opacity-5 xl:w-96 xl:self-center pr-24">
+      <img
+        src={Vitlogga}
+        alt="Bakgrundslogotyp"
+        className="w-auto h-auto object-contain"
+      />
+    </div>
     </section>
   );
 }
 
-export default ProfileImage;
+export default ProfileSection;

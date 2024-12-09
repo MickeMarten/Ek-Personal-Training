@@ -2,7 +2,7 @@ import "./App.css";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "./pages/home/Home";
-import NotFound from "./components/NotFound";
+import NotFound from "./pages/notfound/NotFound";
 
 
 

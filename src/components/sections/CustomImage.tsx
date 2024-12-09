@@ -1,4 +1,4 @@
-import { CustomImageProps } from "../models/CustomImageProps";
+import { CustomImageProps } from "../../models/CustomImageProps";
 
 function CustomImage({ src, alt, className }: CustomImageProps) {
   return (

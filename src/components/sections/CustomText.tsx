@@ -1,6 +1,6 @@
 import { Blockquote } from "flowbite-react";
 
-import { TextInfoBoxesProps } from "../models/CustomTextInfoProps";
+import { TextInfoBoxesProps } from "../../models/CustomTextInfoProps";
 
 function CustomText({ text, className }: TextInfoBoxesProps) {
   return (

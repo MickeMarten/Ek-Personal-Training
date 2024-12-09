@@ -1,8 +1,8 @@
-import FooterEnd from "../../components/Footer";
-import Header from "../../components/Header";
-import Cards from "../../components/Cards";
-import InfoBoxes from "../../components/CustomText";
-import CustomImage from "../../components/CustomImage";
+import FooterEnd from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
+import CardsSection from "../../components/sections/CardsSection";
+import InfoBoxes from "../../components/sections/CustomText";
+import CustomImage from "../../components/sections/CustomImage";
 import dumbells from "/public/assets/images/dumbells.jpg";
 import HepProfile from "../../assets/images/henrik.jpeg"
 import { db } from "../../services/firebaseConfig";
@@ -10,20 +10,13 @@ import { createContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { TrainingPackage } from "../../models/TrainingPackages";
 import { ServicePackageContext } from "../../models/TrainingPackages";
-import ImageTextBox from "../../components/ImageTextBox";
-import ProfileImage from "../../components/ProfileImage";
-import BgImage from "../../components/BgImage";
+import ImageTextBox from "../../components/sections/ImageTextBox";
+import ProfileSection from "../../components/sections/ProfileSection";
+import BgImage from "../../components/sections/BgImage";
 import HomeSEO from "./HomeSEO";
+import { henrikQoutes } from "../../assets/qoutes";
 
-//Flytta qoutes
-export const henrikQoutes = {
-  first:
-    "Min filosofi är enkel, träning ska vara okomplicerad och leda till stora framgångar över tid. ",
-  second:
-    "Oavsett om du vill bli starkare, få mer energi i vardagen eller utmana dig själv på nya sätt, är jag här för att hjälpa dig på vägen.",
-  third:
-    "Mitt mål är att hjälpa dig att hitta rörelseglädjen i vardagen och skapa hållbara vanor som leder till ett friskare och starkare liv.",
-};
+
 
 export const ServiceContext = createContext<ServicePackageContext>({
   packages: [],
@@ -65,7 +58,6 @@ function Home() {
       <HomeSEO />
       <Header />
       <main className="">
-        <BgImage />
         <InfoBoxes text={henrikQoutes.second} className="xl:hidden" />
         <ImageTextBox
           src={dumbells}
@@ -74,8 +66,8 @@ function Home() {
           className="xl:mx-20 xl:mb-12 2xl:mx-28 justify-center flex-row-reverse xl:mt-10"
         />
 
-        <ProfileImage src={HepProfile} alt="Henrik Ek profilbild" />
-        <Cards />
+        <ProfileSection src={HepProfile} alt="Henrik Ek profilbild" />
+        <CardsSection />
         <InfoBoxes text={henrikQoutes.third} className="xl:hidden" />
         <CustomImage src={dumbells} alt="image" className="xl:hidden" />
         <ImageTextBox

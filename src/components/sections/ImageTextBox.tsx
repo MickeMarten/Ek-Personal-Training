@@ -1,6 +1,6 @@
 import CustomImage from "./CustomImage";
 import CustomText from "./CustomText";
-import { ImageTextBoxProps } from "../models/ImageTextBoxProps";
+import { ImageTextBoxProps } from "../../models/ImageTextBoxProps";
 
 function ImageTextBox({ src, alt, text, className }: ImageTextBoxProps) {
   return (

@@ -5,5 +5,5 @@ export interface FormModalProps {
     pktName?: string;
     modalHasBtn: boolean;
     text: string;
-    icon?:IconType
+    icon?:IconType;
   }

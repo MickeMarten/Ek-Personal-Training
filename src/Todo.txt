@@ -11,27 +11,16 @@ fixa mailservice.
 
 Jämföra kort med bild i om det blir bra.
 
-
-
 Fixa modelsnamn
 Ta bort modalbtn?
-
 Fixa responsivitet
 React helmet
-
-
 Footer ser kasst
-
 533 width
 sätt max width på texten i textboxes
 öka storleken på Title i header.
-
-
 800 W centrera header navbar 
 800 W flytta loggan till vänster och titel texten i mitten och gör texten större.
-
 gör bilderna mindre.
-
 Centrera Footer info.
-
 Chip för priser. 
