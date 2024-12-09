@@ -31,7 +31,13 @@ function ProfileImage({ src, alt }: CustomImageProps) {
         </div>
       ) : (
         <div className="px-4 py-4 flex flex-col gap-4">
-          <Button
+     
+          <img
+            src={src}
+            alt={alt}
+            className="w-full max-w-md mx-auto p-6 border-l-4 border-green-400 bg-gray-900 rounded-md shadow-lg"
+          />
+               <Button
             size="lg"
             className="w-36 self-center mt-4"
             gradientMonochrome="info"
@@ -39,11 +45,6 @@ function ProfileImage({ src, alt }: CustomImageProps) {
           >
             Om mig
           </Button>
-          <img
-            src={src}
-            alt={alt}
-            className="w-full max-w-md mx-auto p-6 border-l-4 border-green-400 bg-gray-900 rounded-md shadow-lg"
-          />
         </div>
       )}
     </>

@@ -53,7 +53,7 @@ function Cards() {
                 >
                   {activeCardId === pkt.id ? "Tillbaka" : "Läs mer"}
                 </Button>
-                <FormModal pktName={pkt.name} packages={packages} />
+                <FormModal pktName={pkt.name} packages={packages} modalHasBtn={true} text="Boka" />
               </div>
             </Card>
           ))}

@@ -1,7 +1,7 @@
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Button } from "flowbite-react";
+import { FaBars, FaEnvelope, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Button, Dropdown } from "flowbite-react";
 import Vitlogga from "../../public/assets/images/vitlogga.png";
-import { useState, useEffect, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import FormModal from "./FormModal";
 import { ServiceContext } from "../pages/home/Home";
 import { scroller } from "react-scroll";
@@ -40,50 +40,61 @@ function Header() {
   return (
     <header className="text-white border-b">
       <nav
-        className={`transition-all duration-300 ease-in-out bg-gray900 border-t-2 border-gray-700 h-20
+        className={`transition-all duration-300 ease-in-out bg-gray900 border-t-2 border-gray-700 h-20 md:h-[96px]
       ${isVisible ? "fixed top-0 left-0 w-full z-10" : "relative"} 
       ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"}`}
       >
-        <div className="flex items-center justify-evenly content-center h-full w-full">
-          <div className="">
+        <div className="flex items-center justify-between h-full w-full px-8">
+          <div className="flex flex-row items-center gap-5">
             <a href="/" className="">
-              <img src={Vitlogga} alt="HE-logga" className="w-12" />
+              <img src={Vitlogga} alt="HE-logga" className="w-12 md:w-20" />
             </a>
-          </div>
-          <div className="flex flex-row gap-5">
-            <FormModal packages={packages} />
-            <Button
-              className="h-auto"
-              gradientMonochrome="info"
-              onClick={scrollToSection}
-            >
-              Kontakt
-            </Button>
+            <h2 className="hidden lg:block text-4xl font-mono xl:text-4xl">
+              Henrik Ek Personlig Träning
+            </h2>
           </div>
 
           <div className="flex flex-row gap-5">
-            <a
-              href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
+            <div className="">
+              <FormModal
+                packages={packages}
+                icon={FaEnvelope}
+                text="Kontakta"
+                modalHasBtn={true}
+              />
+            </div>
+
+            <Dropdown
+              label=""
+              dismissOnClick={true}
+              renderTrigger={() => (
+                <span>
+                  <FaBars className="h-10 w-10" />
+                </span>
+              )}
             >
-              <FaLinkedin className="text-4xl" />
-            </a>
-            <a
-              href="https://www.instagram.com/henrikekpersonaltraining/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
-            >
-              <FaInstagram className="text-4xl" />
-            </a>
+              <Dropdown.Item className="hover:text-gray-400">
+                Träningspaket
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={scrollToSection}
+              >
+                <span>Kontaktinformation</span>
+              </Dropdown.Item>
+          
+              <Dropdown.Item onClick={scrollToSection}>
+                Samarbeten
+              </Dropdown.Item>
+              <Dropdown.Item>Om Henrik</Dropdown.Item>
+              <Dropdown.Item icon={FaInstagram}>Instagram</Dropdown.Item>
+              <Dropdown.Item icon={FaLinkedin}>Linkedin</Dropdown.Item>
+            </Dropdown>
           </div>
         </div>
       </nav>
 
       <div className=" lg:py-4 flex items-center xl:justify-start flex-col gap-5 mb-10 lg:flex-row">
-        <div className="w-44 sm:w-48 lg:w-56 2xl:ml-8">
+        <div className="w-44 sm:w-48 lg:w-56 lg:ml-8">
           <img src={Vitlogga} alt="HE-logga" className="object-contain" />
         </div>
         <div className="text-center xl:ml-28 xl:self-center 2xl:ml-60">
@@ -93,6 +104,24 @@ function Header() {
           <h2 className="sm:text-2xl lg:mt-3 xl:text-4xl">
             Tillsammans skapar vi ditt bästa jag
           </h2>
+        </div>
+        <div className="flex flex-row gap-5 self-end mr-40">
+          <a
+            href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-400"
+          >
+            <FaLinkedin className="text-4xl" />
+          </a>
+          <a
+            href="https://www.instagram.com/henrikekpersonaltraining/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-400"
+          >
+            <FaInstagram className="text-4xl" />
+          </a>
         </div>
       </div>
     </header>

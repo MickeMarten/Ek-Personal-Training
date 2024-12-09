@@ -1,23 +1,26 @@
 import {
-  Button,
   Badge,
+  Banner,
+  Button,
   Label,
   Modal,
-  TextInput,
   Textarea,
-  Banner,
+  TextInput,
 } from "flowbite-react";
 import { HiX } from "react-icons/hi";
 import { MdAnnouncement } from "react-icons/md";
 import { useState } from "react";
 import { FormModalProps } from "../models/ForModalProps";
 import emailjs from "@emailjs/browser";
+import React from "react";
 
-function FormModal({ pktName, packages }: FormModalProps) {
+function FormModal(
+  { pktName, packages, text, icon, modalHasBtn }: FormModalProps,
+) {
   const [modalIsActive, setModalIsActive] = useState<boolean>(false);
   const [confirmationModal, setConfirmationModal] = useState<boolean>(false);
   const [choosenPackage, setChoosenPackage] = useState<string | undefined>(
-    pktName
+    pktName,
   );
   const [userEmail, setUserEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -25,6 +28,7 @@ function FormModal({ pktName, packages }: FormModalProps) {
 
   function openAndCloseModal(): void {
     setModalIsActive((prevState) => !prevState);
+    console.log("Hallå");
   }
 
   function validateEmail(email: string): boolean {
@@ -61,7 +65,7 @@ function FormModal({ pktName, packages }: FormModalProps) {
           choosen_package: choosenPackage,
           message: message,
         },
-        "ONXY_44hxPL1AZHT2"
+        "ONXY_44hxPL1AZHT2",
       );
     } catch (error) {
       console.error("Något gick fel med mailservice", error);
@@ -72,13 +76,23 @@ function FormModal({ pktName, packages }: FormModalProps) {
 
   return (
     <>
-      <Button
-        gradientMonochrome="info"
-        className="w-24"
-        onClick={() => openAndCloseModal()}
-      >
-        Boka
-      </Button>
+      {modalHasBtn
+        ? (
+          <Button
+            gradientMonochrome="info"
+            className="w-24"
+            onClick={() => openAndCloseModal()}
+          >
+            {text}
+            {icon && React.createElement(icon, { className: "ml-2 mt-1" })}
+          </Button>
+        )
+        : (
+          <small onClick={() => openAndCloseModal()}>
+            {icon && React.createElement(icon, { className: "" })} {text}
+          </small>
+        )}
+
       <Modal
         show={modalIsActive}
         size="md"
@@ -116,18 +130,18 @@ function FormModal({ pktName, packages }: FormModalProps) {
               <h2>Tillgängliga träningsprogram</h2>
               <div className="flex flex-wrap gap-4 w-full justify-center">
                 <div className="flex gap-4 w-full flex-wrap">
-                  {packages && packages.length > 0 ? (
-                    packages.map((pkt) => (
-                      <Badge
-                        key={pkt.id}
-                        onClick={() => setChoosenPackage(pkt.name)}
-                      >
-                        {pkt.name}
-                      </Badge>
-                    ))
-                  ) : (
-                    <p>Oj, något hände när paketen laddades, prova igen.</p>
-                  )}
+                  {packages && packages.length > 0
+                    ? (
+                      packages.map((pkt) => (
+                        <Badge
+                          key={pkt.id}
+                          onClick={() => setChoosenPackage(pkt.name)}
+                        >
+                          {pkt.name}
+                        </Badge>
+                      ))
+                    )
+                    : <p>Oj, något hände när paketen laddades, prova igen.</p>}
                   <Badge onClick={() => setChoosenPackage("Övrigt")}>
                     Övrigt
                   </Badge>
@@ -186,11 +200,9 @@ function FormModal({ pktName, packages }: FormModalProps) {
           </Banner>
 
           <div
-            className={
-              confirmationModal
-                ? "absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
-                : "hidden"
-            }
+            className={confirmationModal
+              ? "absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
+              : "hidden"}
           >
             <div className="bg-slate-900 p-6 rounded-lg text-white text-center w-3/4 md:w-1/2">
               <p className="mb-4">
