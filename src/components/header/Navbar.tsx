@@ -40,7 +40,7 @@ function Navbar() {
   }
   return (
     <nav
-      className={`transition-all duration-300 ease-in-out bg-gray900 border-t-2 border-gray-700 h-20 md:h-[96px]
+      className={`transition-all duration-300 ease-in-out bg-gray900 border-t-2 border-gray-700 h-20 md:h-[96px] w-full
       ${isVisible ? "fixed top-0 left-0 w-full z-10" : "relative"} 
       ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"}`}
     >

@@ -5,29 +5,30 @@ function Header() {
 
 
   return (
-    <header className="text-white border-b">
+    <header className="text-white border-b grid grid-cols-1 place-items-center">
       <NavBar/>
-
-      <div className=" lg:py-4 flex items-center xl:justify-start flex-col gap-5 mb-10 lg:flex-row">
-        <div className="w-44 sm:w-48 lg:w-56 lg:ml-8">
-          <img src={Vitlogga} alt="HE-logga" className="object-contain" />
+      <div className="flex flex-col xl:flex-row gap-2 w-full justify-center xl:mr-14">
+        <div className="w-44 sm:w-48 self-center lg:w-56 xl:relative xl:right-24">
+          <img src={Vitlogga} alt="HE-logga" className="" />
         </div>
-        <div className="text-center xl:ml-28 xl:self-center 2xl:ml-60">
+        <div className="self-center">
           <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold">
             Henrik Ek - Personlig tränare
           </h1>
-          <h2 className="sm:text-2xl lg:mt-3 xl:text-4xl">
+          <h2 className="sm:text-2xl lg:mt-3 xl:text-4xl text-center">
             Tillsammans skapar vi ditt bästa jag
           </h2>
         </div>
-        <div className="flex flex-row gap-5 self-end mr-40">
+    
+      </div>
+      <div className="flex flex-row gap-10 h-20 items-center">
           <a
             href="https://www.linkedin.com/in/henrik-ek-062856226/?locale=en_US&trk=people-guest_people_search-card"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-400"
           >
-            <FaLinkedin className="text-4xl" />
+            <FaLinkedin className="text-4xl xl:text-5xl" />
           </a>
           <a
             href="https://www.instagram.com/henrikekpersonaltraining/"
@@ -35,10 +36,9 @@ function Header() {
             rel="noopener noreferrer"
             className="hover:text-gray-400"
           >
-            <FaInstagram className="text-4xl" />
+            <FaInstagram className="text-4xl xl:text-5xl" />
           </a>
         </div>
-      </div>
     </header>
   );
 }
