@@ -7,8 +7,8 @@ function Header() {
   return (
     <header className="text-white border-b grid grid-cols-1 place-items-center">
       <NavBar/>
-      <div className="flex flex-col xl:flex-row gap-2 w-full justify-center xl:mr-14">
-        <div className="w-44 sm:w-48 self-center lg:w-56 xl:relative xl:right-24">
+      <div className="flex flex-col xl:flex-row gap-2 w-full justify-center xl:mr-48">
+        <div className="w-44 sm:w-48 self-center lg:w-56 xl:relative xl:right-2 2xl:right-20">
           <img src={Vitlogga} alt="HE-logga" className="" />
         </div>
         <div className="self-center">

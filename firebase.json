@@ -11,6 +11,13 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "redirects": [
+      {
+        "source": "www.henrikekpt.se",
+        "destination": "https://henrikekpt.se",
+        "type": 301
+      }
     ]
   }
 }

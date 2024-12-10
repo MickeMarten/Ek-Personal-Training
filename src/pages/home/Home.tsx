@@ -12,7 +12,6 @@ import { TrainingPackage } from "../../models/TrainingPackages";
 import { ServicePackageContext } from "../../models/TrainingPackages";
 import ImageTextBox from "../../components/sections/ImageTextBox";
 import ProfileSection from "../../components/sections/ProfileSection";
-import BgImage from "../../components/sections/BgImage";
 import HomeSEO from "./HomeSEO";
 import { henrikQoutes } from "../../assets/qoutes";
 
