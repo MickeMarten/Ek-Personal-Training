@@ -70,7 +70,7 @@ function Navbar() {
             dismissOnClick={true}
             renderTrigger={() => (
               <span>
-                <FaBars className="h-10 w-10 cursor-pointer" />
+                <FaBars className="w-8 h-8 mt-1 xl:h-10 xl:w-10 cursor-pointer xl:mt-0 " />
               </span>
             )}
           >
