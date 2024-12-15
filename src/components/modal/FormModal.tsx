@@ -1,21 +1,19 @@
 import {
   Badge,
-  Banner,
   Button,
   Label,
   Modal,
   Textarea,
   TextInput,
 } from "flowbite-react";
-import { HiX } from "react-icons/hi";
-import { MdAnnouncement } from "react-icons/md";
+import Annoncment from "../gdpr/Announcement";
 import { useState } from "react";
 import { FormModalProps } from "../../models/ForModalProps";
 import emailjs from "@emailjs/browser";
 import React from "react";
 import ConfirmationModal from "./ConfirmationModal";
 function FormModal(
-  { pktName, packages, text, icon, modalHasBtn }: FormModalProps,
+  { pktName, packages, text, icon }: FormModalProps,
 ) {
   const [modalIsActive, setModalIsActive] = useState<boolean>(false);
   const [confirmationModalIsActive, setConfirmationModalIsActive] = useState<
@@ -27,10 +25,10 @@ function FormModal(
   const [userEmail, setUserEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
+  const [messeageIsValid, setMesseageIsValid] = useState<boolean>(true);
 
   function openAndCloseModal(): void {
     setModalIsActive((prevState) => !prevState);
-    console.log("Hallå");
   }
 
   function validateEmail(email: string): boolean {
@@ -38,7 +36,7 @@ function FormModal(
     return emailRegex.test(email);
   }
 
-  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleEmail(e: React.ChangeEvent<HTMLInputElement>) {
     const email = e.target.value;
     setUserEmail(email);
     if (email.length === 0) {
@@ -51,8 +49,25 @@ function FormModal(
   function sendEmail(e: React.FormEvent) {
     e.preventDefault();
 
-    if (!emailIsValid || userEmail.length < 3 || !userEmail.includes("@")) {
-      console.error("E-posten är ogiltig, försök igen.");
+    if (
+      !emailIsValid || userEmail.length < 3 || !userEmail.includes("@")
+    ) {
+      setEmailIsValid(false);
+      setTimeout(() => {
+        setEmailIsValid(true);
+      }, 4000);
+      console.error("Email is invalid");
+
+      return;
+    }
+
+    if (message.trim().length == 0) {
+      setMesseageIsValid(false);
+      console.log("Message may not be empty");
+
+      setTimeout(() => {
+        setMesseageIsValid(true);
+      }, 4000);
       return;
     }
 
@@ -70,30 +85,24 @@ function FormModal(
         "ONXY_44hxPL1AZHT2",
       );
     } catch (error) {
-      console.error("Något gick fel med mailservice", error);
+      console.error("Email service is failing", error);
     }
 
-    console.log("Email skickades", userEmail, choosenPackage, message);
+    console.log("Email sent with loot:", userEmail, choosenPackage, message);
+    setMessage("");
+    setUserEmail("");
   }
 
   return (
     <>
-      {modalHasBtn
-        ? (
-          <Button
-            gradientMonochrome="info"
-            className="w-24"
-            onClick={() => openAndCloseModal()}
-          >
-            {text}
-            {icon && React.createElement(icon, { className: "ml-2 mt-1" })}
-          </Button>
-        )
-        : (
-          <small onClick={() => openAndCloseModal()}>
-            {icon && React.createElement(icon, { className: "" })} {text}
-          </small>
-        )}
+      <Button
+        gradientMonochrome="info"
+        className="w-24"
+        onClick={() => openAndCloseModal()}
+      >
+        {text}
+        {icon && React.createElement(icon, { className: "ml-2 mt-1" })}
+      </Button>
 
       <Modal
         show={modalIsActive}
@@ -119,12 +128,14 @@ function FormModal(
                 type="email"
                 required
                 color={emailIsValid ? "success" : "failure"}
-                onChange={handleEmailChange}
+                onChange={handleEmail}
               />
               {!emailIsValid && (
-                <span className="text-sm text-red-500">
-                  Email är inte giltig!
-                </span>
+                <div>
+                  <span className=" text-red-500 animate-fade-in">
+                    Email är inte giltig!
+                  </span>
+                </div>
               )}
             </div>
 
@@ -163,11 +174,20 @@ function FormModal(
                   className="text-primary"
                 />
                 <Textarea
-                  required
+                  required={true}
                   rows={4}
                   onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
+            </div>
+            <div
+              className={messeageIsValid
+                ? "hidden"
+                : "block text-red-500 animate-fade-in"}
+            >
+              <span>
+                Glöm inte att skriva ett meddelande!
+              </span>
             </div>
 
             <div className="w-full flex justify-between">
@@ -187,25 +207,13 @@ function FormModal(
               </Button>
             </div>
           </div>
-          <Banner>
-            <div className="flex w-full justify-between border-b border-gray-200 bg-gray-50 p-2">
-              <div className="mx-auto flex items-center">
-                <p className="flex items-center text-sm font-normal text-gray900 ">
-                  <MdAnnouncement className="mr-4 h-4 w-4" />
-                  Vi kommer inte att spara din data!
-                </p>
-              </div>
-              <Banner.CollapseButton color="gray" className=" text-gray900">
-                <HiX className="h-4 w-4" />
-              </Banner.CollapseButton>
-            </div>
-          </Banner>
+          <Annoncment/>
+
           <ConfirmationModal
             onButtonClick={setModalIsActive}
             confirmationModalIsActive={confirmationModalIsActive}
             setConfirmationModal={setConfirmationModalIsActive}
           />
-      
         </Modal.Body>
       </Modal>
     </>

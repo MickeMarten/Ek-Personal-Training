@@ -60,7 +60,6 @@ function Navbar() {
               packages={packages}
               icon={FaEnvelope}
               text="Kontakta"
-              modalHasBtn={true}
             />
           </div>
 

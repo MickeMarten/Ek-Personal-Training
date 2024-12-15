@@ -1,7 +1,7 @@
 import FooterEnd from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import CardsSection from "../../components/sections/CardsSection";
-import InfoBoxes from "../../components/sections/CustomText";
+import CustomText from "../../components/sections/CustomText";
 import CustomImage from "../../components/sections/CustomImage";
 import dumbells from "/public/assets/images/dumbells.jpg";
 import HepProfile from "../../assets/images/henrik.jpeg"
@@ -57,22 +57,22 @@ function Home() {
       <HomeSEO />
       <Header />
       <main className="">
-        <InfoBoxes text={henrikQoutes.second} className="xl:hidden" />
+        <CustomText text={henrikQoutes.second} className="xl:hidden" />
         <ImageTextBox
           src={dumbells}
           alt="image"
           text={henrikQoutes.second}
-          className="xl:mx-20 xl:mb-12 2xl:mx-28 justify-center flex-row-reverse xl:mt-10"
+          className=" justify-center flex-row-reverse xl:mt-10"
         />
 
         <ProfileSection src={HepProfile} alt="Henrik Ek profilbild" />
         <CardsSection />
-        <InfoBoxes text={henrikQoutes.third} className="xl:hidden" />
+        <CustomText text={henrikQoutes.third} className="xl:hidden" />
         <CustomImage src={dumbells} alt="image" className="xl:hidden" />
         <ImageTextBox
           src={dumbells}
           alt="image"
-          className=" xl:mx-20 xl:mb-12 2xl:mx-28 2xl:mb-14 justify-center"
+          className=" 2xl:mb-14 justify-center"
           text={henrikQoutes.third}
         />
       </main>

@@ -56,7 +56,7 @@ function CardsSection() {
                 >
                   {activeCardId === pkt.id ? "Tillbaka" : "Läs mer"}
                 </Button>
-                <FormModal pktName={pkt.name} packages={packages} modalHasBtn={true} text="Boka" />
+                <FormModal pktName={pkt.name} packages={packages} text="Boka" />
               </div>
             </Card>
           ))}
