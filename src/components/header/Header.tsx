@@ -1,4 +1,3 @@
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import Vitlogga from "../../assets/images/vitlogga.png";
 import NavBar from "./Navbar";
 import SocialLinks from "../sociallinks/SocialLinks";
