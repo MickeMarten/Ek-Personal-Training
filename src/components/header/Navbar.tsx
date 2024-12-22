@@ -1,7 +1,7 @@
 import { FaBars, FaEnvelope, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Dropdown, DropdownHeader, DropdownItem } from "flowbite-react";
+import { Dropdown, DropdownItem } from "flowbite-react";
 import { dropDownItems } from "../../assets/texts";
-import { JSXElementConstructor, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FormModal from "../modal/FormModal";
 import { ServiceContext } from "../../pages/home/Home";
 import { scroller } from "react-scroll";
