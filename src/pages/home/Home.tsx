@@ -11,7 +11,7 @@ import { ServicePackageContext } from "../../models/TrainingPackages";
 import ImageTextBox from "../../components/sections/ImageTextBox";
 import ProfileSection from "../../components/sections/ProfileSection";
 import HomeSEO from "./HomeSEO";
-import { henrikQoutes } from "../../assets/qoutes";
+import { henrikQoutes } from "../../assets/texts";
 
 
 

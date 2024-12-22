@@ -1,7 +1,7 @@
 import { FaBars, FaEnvelope, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Dropdown } from "flowbite-react";
-/* import VitLogga from "../../public/assets/images/vitlogga.png"; */
-import { useContext, useEffect, useState } from "react";
+import { Dropdown, DropdownHeader, DropdownItem } from "flowbite-react";
+import { dropDownItems } from "../../assets/texts";
+import { JSXElementConstructor, useContext, useEffect, useState } from "react";
 import FormModal from "../modal/FormModal";
 import { ServiceContext } from "../../pages/home/Home";
 import { scroller } from "react-scroll";
@@ -38,6 +38,26 @@ function Navbar() {
       smooth: "easeInOutQuart",
     });
   }
+
+  function setDropDownItems(text:string, scrollSection:string, index:string){
+    return (
+      <DropdownItem key={index} className="hover:text-gray-400"  onClick={() => {
+        scrollToSection(scrollSection)
+        
+      }}>{text}</DropdownItem>
+    )
+
+  }
+
+  function showDropDownItems():any{
+    return dropDownItems.map(item => 
+       ( setDropDownItems(item.text, item.scrollTo, item.text))
+      
+    );
+
+    
+
+  }
   return (
     <nav
       className={`transition-all duration-300 ease-in-out bg-gray900 border-t-2 border-gray-700 h-20 md:h-[96px] w-full
@@ -73,39 +93,7 @@ function Navbar() {
               </span>
             )}
           >
-            <Dropdown.Item
-              className="hover:text-gray-400"
-              onClick={() => {
-                scrollToSection("Cards");
-              }}
-            >
-              Träningspaket
-            </Dropdown.Item>
-            <Dropdown.Item
-              className="hover:text-gray-400"
-              onClick={() => {
-                scrollToSection("Footer");
-              }}
-            >
-              <span>Kontaktinformation</span>
-            </Dropdown.Item>
-
-            <Dropdown.Item
-              className="hover:text-gray-400"
-              onClick={() => {
-                scrollToSection("Footer");
-              }}
-            >
-              Samarbeten
-            </Dropdown.Item>
-            <Dropdown.Item
-              className="hover:text-gray-400"
-              onClick={() => {
-                scrollToSection("About");
-              }}
-            >
-              Om Henrik
-            </Dropdown.Item>
+            {showDropDownItems()}
             <Dropdown.Item
               className="hover:text-gray-400"
               icon={FaInstagram}

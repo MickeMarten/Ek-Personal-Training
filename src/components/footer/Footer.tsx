@@ -1,6 +1,5 @@
 import { Footer } from "flowbite-react";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
-/* import VitLogga from "../../public/assets/images/vitlogga.png"; */
 import { Element } from "react-scroll";
 
 function FooterEnd() {
@@ -8,8 +7,12 @@ function FooterEnd() {
     <Footer container className="w-full bg-gray900 rounded-b-sm border-t py-8">
       <div className="w-full text-white">
         <div className="sm:flex sm:justify-between sm:items-center">
-          <a href="/" >
-            <img src="/assets/images/vitlogga.png" alt="HE-logo" className="h-14  mb-4 sm:mb-0" />
+          <a href="/">
+            <img
+              src="/assets/images/vitlogga.png"
+              alt="HE-logo"
+              className="h-14  mb-4 sm:mb-0"
+            />
           </a>
 
           <div className="sm:flex gap-12">
@@ -20,7 +23,6 @@ function FooterEnd() {
                 <Footer.Link href="mailto:Kontakt@henrikekpt.se">
                   Kontakt@henrikekpt.se
                 </Footer.Link>
-                
               </ul>
             </div>
 
@@ -44,21 +46,15 @@ function FooterEnd() {
               <h3 className="text-lg font-semibold mb-2">Samarbeten</h3>
               <ul>
                 <Footer.Link
-                  href="https://example.com"
+                  href="https://www.rehab2performance.se/"
                   className=" hover:underline"
                 >
-                  Example Partner 1
+                  Rehab to performance
                 </Footer.Link>
-                <Footer.Link
-                  href="https://example.com"
-                  className=" hover:underline"
-                >
-                  Example Partner 2
-                </Footer.Link>
+                
               </ul>
             </div>
           </div>
-
         </div>
 
         <Footer.Divider className="my-6 border-gray-700" />
@@ -71,7 +67,6 @@ function FooterEnd() {
         />
       </div>
       <Element name="Footer"></Element>
-
     </Footer>
   );
 }

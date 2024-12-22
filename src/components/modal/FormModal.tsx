@@ -19,8 +19,8 @@ function FormModal(
   const [confirmationModalIsActive, setConfirmationModalIsActive] = useState<
     boolean
   >(false);
-  const [choosenPackage, setChoosenPackage] = useState<string | undefined>(
-    pktName,
+  const [choosenPackage, setChoosenPackage] = useState<string>(
+    pktName || "Övrigt",
   );
   const [userEmail, setUserEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");

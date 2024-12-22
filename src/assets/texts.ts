@@ -7,3 +7,20 @@ export const henrikQoutes = {
     third:
       "Mitt mål är att hjälpa dig att hitta rörelseglädjen i vardagen och skapa hållbara vanor som leder till ett friskare och starkare liv.",
   };
+
+  export const dropDownItems = [
+
+   {text: "Träninngspaket",
+    scrollTo:"Cards"
+   } ,
+    {text: "Kontakt",
+      scrollTo:"Footer"
+    },
+     {text:"Samarbeten",
+      scrollTo:"Footer"
+     },
+    {text: "Om Henrik",
+      scrollTo:"About"
+    },
+
+  ]

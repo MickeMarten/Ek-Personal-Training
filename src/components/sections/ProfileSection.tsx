@@ -3,7 +3,6 @@ import { useState } from "react";
 import { CustomImageProps } from "../../models/CustomImageProps";
 import InfoBoxes from "./CustomText";
 import { Element } from "react-scroll";
-import VitLogga from "../../public/assets/images/vitlogga.png";
 
 function ProfileSection({ src, alt }: CustomImageProps) {
   const [showInfoText, setShowInfoText] = useState<boolean>(false);
