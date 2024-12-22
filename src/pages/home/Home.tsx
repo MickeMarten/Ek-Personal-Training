@@ -3,9 +3,6 @@ import Header from "../../components/header/Header";
 import CardsSection from "../../components/sections/CardsSection";
 import CustomText from "../../components/sections/CustomText";
 import CustomImage from "../../components/sections/CustomImage";
-import kettlebell from "../../assets/images/kettlebell.jpg"
-import tire from "../../assets/images/tire.jpg"
-import ProfilePicture from "../../assets/images/henrik.jpeg"
 import { db } from "../../services/firebaseConfig";
 import { createContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -60,18 +57,18 @@ function Home() {
       <main className="">
         <CustomText text={henrikQoutes.second} className="xl:hidden" />
         <ImageTextBox
-          src={kettlebell}
+          src="/assets/images/kettlebell.jpg"
           alt="Image of Henrik coaching"
           text={henrikQoutes.second}
           className=" justify-center flex-row-reverse xl:mt-10"
         />
 
-        <ProfileSection src={ProfilePicture} alt="Henrik Ek profilbild" />
+        <ProfileSection src="/assets/images/henrik.jpeg" alt="Henrik Ek profilbild" />
         <CardsSection />
         <CustomText text={henrikQoutes.third} className="xl:hidden" />
-        <CustomImage src={tire} alt="Image of Henrik coaching" className="xl:hidden" />
+        <CustomImage src="/assets/images/kettlebell.jpg" alt="Image of Henrik coaching" className="xl:hidden" />
         <ImageTextBox
-          src={tire}
+          src="/assets/images/tire.jpg"
           alt="image"
           className=" 2xl:mb-14 justify-center"
           text={henrikQoutes.third}

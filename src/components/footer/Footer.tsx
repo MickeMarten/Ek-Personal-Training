@@ -1,6 +1,6 @@
 import { Footer } from "flowbite-react";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
-import Vitlogga from "../../assets/images/vitlogga.png";
+/* import VitLogga from "../../public/assets/images/vitlogga.png"; */
 import { Element } from "react-scroll";
 
 function FooterEnd() {
@@ -9,7 +9,7 @@ function FooterEnd() {
       <div className="w-full text-white">
         <div className="sm:flex sm:justify-between sm:items-center">
           <a href="/" >
-            <img src={Vitlogga} alt="HE-logo" className="h-14  mb-4 sm:mb-0" />
+            <img src="/assets/images/vitlogga.png" alt="HE-logo" className="h-14  mb-4 sm:mb-0" />
           </a>
 
           <div className="sm:flex gap-12">

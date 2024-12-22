@@ -1,4 +1,3 @@
-import Vitlogga from "../../assets/images/vitlogga.png";
 import NavBar from "./Navbar";
 import SocialLinks from "../sociallinks/SocialLinks";
 function Header() {
@@ -9,7 +8,7 @@ function Header() {
       <NavBar/>
       <div className="flex flex-col xl:flex-row gap-2 w-full justify-center xl:mr-48 ">
         <div className="w-44 sm:w-48 self-center lg:w-56 xl:relative xl:right-2 2xl:right-20">
-          <img src={Vitlogga} alt="HE-logga" className="" />
+          <img src="/assets/images/vitlogga.png" alt="HE-logga" className="" />
         </div>
         <div className="self-center">
           <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold">
@@ -20,10 +19,11 @@ function Header() {
           </h2>
         </div>
 
- <SocialLinks/>
 
     
       </div>
+ <SocialLinks/>
+
     </header>
   );
 }

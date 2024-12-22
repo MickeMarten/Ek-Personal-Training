@@ -1,6 +1,6 @@
 import { FaBars, FaEnvelope, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Dropdown } from "flowbite-react";
-import Vitlogga from "../../assets/images/vitlogga.png";
+/* import VitLogga from "../../public/assets/images/vitlogga.png"; */
 import { useContext, useEffect, useState } from "react";
 import FormModal from "../modal/FormModal";
 import { ServiceContext } from "../../pages/home/Home";
@@ -47,7 +47,7 @@ function Navbar() {
       <div className="flex items-center justify-between h-full w-full px-8">
         <div className="flex flex-row items-center gap-5">
           <a href="/" className="">
-            <img src={Vitlogga} alt="HE-logga" className="w-12 md:w-20" />
+            <img src="/assets/images/vitlogga.png" alt="HE-logga" className="w-12 md:w-20" />
           </a>
           <h2 className="hidden lg:block text-4xl font-mono xl:text-4xl">
             Henrik Ek Personlig Träning

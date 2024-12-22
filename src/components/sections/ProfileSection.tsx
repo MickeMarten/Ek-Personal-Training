@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CustomImageProps } from "../../models/CustomImageProps";
 import InfoBoxes from "./CustomText";
 import { Element } from "react-scroll";
-import Vitlogga from "../../assets/images/vitlogga.png";
+import VitLogga from "../../public/assets/images/vitlogga.png";
 
 function ProfileSection({ src, alt }: CustomImageProps) {
   const [showInfoText, setShowInfoText] = useState<boolean>(false);
@@ -53,7 +53,7 @@ function ProfileSection({ src, alt }: CustomImageProps) {
       )}
       <div className="hidden xl:block  xl:opacity-5 xl:w-96 xl:self-center pr-24">
       <img
-        src={Vitlogga}
+        src="/assets/images/vitlogga.png"
         alt="Bakgrundslogotyp"
         className="w-auto h-auto object-contain"
       />
