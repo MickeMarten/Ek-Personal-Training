@@ -2,7 +2,7 @@ export interface TrainingPackage {
     id: string; 
     name: string; 
     description: string; 
-    price: number; 
+    price: number | string; 
     duration: number; 
     active: boolean; 
     includes: string[]; 

@@ -140,7 +140,7 @@ function FormModal(
             </div>
 
             <div className="text-center flex flex-col gap-3">
-              <h2>Tillgängliga träningsprogram</h2>
+              <h2>Tillgängliga träningspaket</h2>
               <div className="flex flex-wrap gap-4 w-full justify-center">
                 <div className="flex gap-4 w-full flex-wrap">
                   {packages && packages.length > 0

@@ -10,7 +10,7 @@ export const henrikQoutes = {
 
   export const dropDownItems = [
 
-   {text: "Träninngspaket",
+   {text: "Träningspaket",
     scrollTo:"Cards"
    } ,
     {text: "Kontakt",

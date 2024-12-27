@@ -49,7 +49,7 @@ function FooterEnd() {
                   href="https://www.rehab2performance.se/"
                   className=" hover:underline"
                 >
-                  Rehab to performance
+                  Rehab2Performance
                 </Footer.Link>
                 
               </ul>
