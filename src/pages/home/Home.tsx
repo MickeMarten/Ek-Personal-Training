@@ -1,15 +1,15 @@
 import FooterEnd from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import CardsSection from "../../components/sections/CardsSection";
-import CustomText from "../../components/sections/CustomText";
-import CustomImage from "../../components/sections/CustomImage";
+import CardsSection from "../../components/shared/CardsSection";
+import CustomText from "../../components/shared/CustomText";
+import CustomImage from "../../components/shared/CustomImage";
 import { db } from "../../services/firebaseConfig";
 import { createContext, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { TrainingPackage } from "../../models/TrainingPackages";
 import { ServicePackageContext } from "../../models/TrainingPackages";
-import ImageTextBox from "../../components/sections/ImageTextBox";
-import ProfileSection from "../../components/sections/ProfileSection";
+import ImageTextBox from "../../components/shared/ImageTextBox";
+import ProfileSection from "../../components/shared/ProfileSection";
 import HomeSEO from "./HomeSEO";
 import { henrikQoutes } from "../../assets/texts";
 
