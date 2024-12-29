@@ -1,5 +1,5 @@
 import NavBar from "./Navbar";
-import SocialLinks from "../sociallinks/SocialLinks";
+import SocialLinks from "../shared/SocialLinks";
 function Header() {
 
 
