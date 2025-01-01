@@ -62,7 +62,7 @@ function FooterEnd() {
         <Footer.Copyright
           href="https://mikael-martensson.se/"
           by="MickeMarten™"
-          year={2024}
+          year={new Date().getFullYear()}
           className="text-center text-gray-400"
         />
       </div>
