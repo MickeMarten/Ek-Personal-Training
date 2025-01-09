@@ -6,6 +6,7 @@ import {
   Textarea,
   TextInput,
 } from "flowbite-react";
+import { HiMail } from "react-icons/hi";
 import Annoncment from "../gdpr/Announcement";
 import { useState } from "react";
 import { FormModalProps } from "../../models/ForModalProps";
@@ -119,12 +120,15 @@ function FormModal(
 
             <div className="mb-2 block ">
               <Label
-                htmlFor="email"
+                htmlFor="email1"
                 value="Din email"
                 className="text-primary"
+                
               />
               <TextInput
+              rightIcon={HiMail}
                 placeholder="Exempel@Email.com"
+                id="email1"
                 type="email"
                 required
                 color={emailIsValid ? "success" : "failure"}
@@ -147,15 +151,17 @@ function FormModal(
                     ? (
                       packages.map((pkt) => (
                         <Badge
+                        className="cursor-pointer"
                           key={pkt.id}
                           onClick={() => setChoosenPackage(pkt.name)}
+
                         >
                           {pkt.name}
                         </Badge>
                       ))
                     )
                     : <p>Oj, något hände när paketen laddades, prova igen.</p>}
-                  <Badge onClick={() => setChoosenPackage("Övrigt")}>
+                  <Badge className="cursor-pointer" onClick={() => setChoosenPackage("Övrigt")}>
                     Övrigt
                   </Badge>
                 </div>
@@ -174,6 +180,7 @@ function FormModal(
                   className="text-primary"
                 />
                 <Textarea
+                id="comment"
                   required={true}
                   rows={4}
                   onChange={(e) => setMessage(e.target.value)}
